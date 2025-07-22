@@ -1,7 +1,7 @@
 {
     "rewrites": [
       {"source": "/plantcare-api/(.*)", "destination": "https://plantcare-api-prod.agroworld.lk/$1"},
-      {"source": "/collector-api/(.*)", "destination": "https://collector-api-prod.agroworld.lk/$1"},
+      {"source": "/collector-api/(.*)", "destination": "https://collector-api-prod.polygonagro.com/$1"},
       {"source": "/dash-api/(.*)", "destination": "https://dash-api-prod.polygonagro.com/$1"},
       {"source": "/cc-api/(.*)", "destination": "https://cc-api-prod.agroworld.lk/$1"},
       {"source": "/admin-api/(.*)", "destination": "https://admin-api-prod.polygonagro.com/$1"},
