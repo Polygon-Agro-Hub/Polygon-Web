@@ -7,6 +7,6 @@
       {"source": "/admin-api/(.*)", "destination": "https://admin-api-prod.polygonagro.com/$1"},
       {"source": "/admin/(.*)", "destination": "https://admin-panel-prod.polygonagro.com/$1"},
       {"source": "/cc/(.*)", "destination": "https://cc-web-prod.agroworld.lk/$1"},
-      {"source": "/market/(.*)", "destination": "https://market-prod.polygonagro.com/$1"}
+      {"source": "/market/(.*)", "destination": "https://market-prod.agroworld.lk/$1"}
     ]
 }
