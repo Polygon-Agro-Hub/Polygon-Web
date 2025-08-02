@@ -13,6 +13,6 @@
       {
       "source": "/market/(.*)",
       "destination": "https://market-prod.polygonagro.com/market/$1"
-     },
+     }
     ]
 }
