@@ -7,6 +7,12 @@
       {"source": "/admin-api/(.*)", "destination": "https://admin-api-prod.polygonagro.com/$1"},
       {"source": "/admin/(.*)", "destination": "https://admin-panel-prod.polygonagro.com/$1"},
       {"source": "/cc/(.*)", "destination": "https://cc-web-prod.polygonagro.com/$1"},
-      {"source": "/market/(.*)", "destination": "https://market-prod.polygonagro.com/$1"}
+      {      "source": "/market/_next/static/(.*)",
+      "destination": "https://market-prod.polygonagro.com/market/_next/static/$1"
+      },
+      {
+      "source": "/market/(.*)",
+      "destination": "https://market-prod.polygonagro.com/market/$1"
+     },
     ]
 }
