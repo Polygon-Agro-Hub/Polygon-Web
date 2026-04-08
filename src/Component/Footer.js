@@ -15,7 +15,9 @@ const Footer = () => {
             <br /> Colombo 01, Western 00100, LK
           </p>
           <p className="my-[5px]">
-            <a href="mailto:info@agroworld.lk" className="text-[#00B2FF] no-underline hover:underline"></a>
+            <a href="mailto:info@agroworld.lk" className="text-[#00B2FF] no-underline hover:underline">
+              info@agroworld.lk
+            </a>
           </p>
         </div>
 
@@ -52,10 +54,22 @@ const Footer = () => {
         <div className="w-full md:w-auto">
           <h4 className="mb-[10px] text-[1rem] text-[#00B2FF]">FOLLOW</h4>
           <div className="flex gap-[15px] justify-center md:justify-start">
-            <a href="" target="_blank" rel="noreferrer" className="text-[#00B2FF] text-[1.2rem] transition-all duration-300 hover:text-white hover:scale-125 inline-block">
+            <a 
+              href="https://www.linkedin.com/company/agroworld" 
+              target="_blank" 
+              rel="noreferrer" 
+              className="text-[#00B2FF] text-[1.2rem] transition-all duration-300 hover:text-white hover:scale-125 inline-block"
+              aria-label="Follow us on LinkedIn"
+            >
               <FaLinkedin />
             </a>
-            <a href="https://www.youtube.com/@Agro_World" target="_blank" rel="noreferrer" className="text-[#00B2FF] text-[1.2rem] transition-all duration-300 hover:text-white hover:scale-125 inline-block">
+            <a 
+              href="https://www.youtube.com/@Agro_World" 
+              target="_blank" 
+              rel="noreferrer" 
+              className="text-[#00B2FF] text-[1.2rem] transition-all duration-300 hover:text-white hover:scale-125 inline-block"
+              aria-label="Subscribe to our YouTube channel"
+            >
               <FaYoutube />
             </a>
           </div>
