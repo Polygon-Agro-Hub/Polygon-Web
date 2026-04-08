@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./Style/FAQ.css";
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -32,31 +31,31 @@ const FAQ = () => {
   ];
 
   return (
-    <div className="faq-section">
-      <div className="faq-left">
-        <h2 className="faq-title">FAQ</h2>
-        <p className="faq-description">
+    <div className="flex flex-col md:flex-row justify-between items-start p-[40px] bg-[#f9f9f9] w-full">
+      <div className="flex-1 max-w-full md:max-w-[40%] md:mr-[20px] mb-[20px] md:mb-0">
+        <h2 className="text-[1.8rem] font-bold mb-[10px] text-[#333]">FAQ</h2>
+        <p className="text-[1rem] leading-[1.6] text-[#555] mb-[20px]">
           Do you have any questions for us? We will answer all your questions.
         </p>
       </div>
 
-      <div className="faq-right">
+      <div className="flex-[2] w-full">
         {faqData.map((faq, index) => (
           <div
             key={index}
-            className={`faq-item ${openIndex === index ? "open" : ""}`}
+            className={`bg-white border border-[#ddd] rounded-[8px] mb-[10px] overflow-hidden transition-all duration-300 ${openIndex === index ? "shadow-md" : ""}`}
           >
             <div
-              className="faq-question"
+              className="p-[15px] px-[20px] flex justify-between items-center text-[1rem] font-bold text-[#333] cursor-pointer transition-colors duration-300 hover:bg-[#f0f0f0]"
               onClick={() => toggleDropdown(index)}
             >
               {faq.question}
-              <span className="faq-arrow">
+              <span className="text-[1.2rem] text-[#555] transition-transform duration-300">
                 {openIndex === index ? "▲" : "▼"}
               </span>
             </div>
             {openIndex === index && (
-              <div className="faq-answer">
+              <div className="p-[15px] px-[20px] text-[0.9rem] leading-[1.6] text-[#333] bg-[#e8f5e9] border border-dashed border-[#90caf9] rounded-[8px] mx-[20px] mb-[10px] shadow-sm">
                 {faq.answer}
               </div>
             )}

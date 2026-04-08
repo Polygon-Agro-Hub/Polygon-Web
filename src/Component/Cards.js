@@ -1,5 +1,4 @@
 import React from "react";
-import "./Style/Cards.css";
 import commonImage from "../images/Leave.png"; // Replace with the correct image path
 
 const cardData = [
@@ -15,11 +14,11 @@ const cardData = [
 
 const Cards = () => {
   return (
-    <div className="card-container-Eco">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[20px] max-w-[1200px] my-[20px] mx-auto p-[20px]">
       {cardData.map((text, index) => (
-        <div key={index} className="card-Eco">
-          <img src={commonImage} alt="Icon" className="card-icon-Eco" />
-          <p>{text}</p>
+        <div key={index} className="bg-white border border-[#e0e0e0] rounded-[8px] shadow-sm p-[20px] text-center transition-transform duration-300 hover:-translate-y-[5px]">
+          <img src={commonImage} alt="Icon" className="w-[40px] mb-[10px] mx-auto block" />
+          <p className="text-[14px] text-[#333] leading-[1.5]">{text}</p>
         </div>
       ))}
     </div>
