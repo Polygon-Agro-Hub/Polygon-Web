@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import CardComponent from "./CardComponent";
 import CardData from "./Model/CardData";
 import Eco from "../images/EcoSystem.png";
-import About from "../images/About Glob.png";
 import Solution from "../images/Solution Components.png";
 import Cards from "./Cards";
 import Center from "../images/Center.png";
@@ -43,7 +42,7 @@ const Body = () => {
         </p>
 
         <a
-          href="#"
+          href="/test"
           className="mt-6 text-[#F40064] Inter-Regular font-[400] text-[20px] tracking-widest leading-[28px] underline underline-offset-4 hover:text-[#c0003e] transition-colors"
         >
           Learn More
