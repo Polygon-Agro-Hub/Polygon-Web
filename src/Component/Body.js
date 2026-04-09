@@ -63,12 +63,12 @@ const Body = () => {
   </div>
 </div>
       <div className="flex flex-col items-center text-center py-[20px] md:py-[30px] px-[10px] md:px-[20px] w-full">
-        <h4 className="bg-[#b0da61] text-[#4c5f09] border-2 border-[#bbce53] rounded-[10px] py-[8px] px-[15px] w-fit mx-auto text-[0.8rem] md:text-[1rem] mb-4">AgroWorld Eco System</h4>
+        <h4 className="bg-[#F1FFB7] text-[#627324] border border-[#C8D0A9] rounded-full py-[6px] px-[22px] text-[14px] self-center mb-4">Polygon Agro Eco System</h4>
         <img src={Eco} alt="eco-img" className="max-w-full h-auto px-[10px] block" />
       </div>
       <div className="w-full p-[15px] md:p-[20px] text-center">
         <div className="text-center mb-[20px] w-full">
-          <h4 className="bg-[#b0da61] text-[#4c5f09] border-2 border-[#bbce53] rounded-[10px] py-[8px] px-[15px] w-fit mx-auto text-[0.8rem] md:text-[1rem]">Solution Components</h4>
+          <h4 className="bg-[#F1FFB7] text-[#627324] border border-[#C8D0A9] rounded-full py-[8px] px-[15px] w-fit mx-auto text-[0.8rem] md:text-[1rem]">Solution Components</h4>
           <h2 className="my-[10px] mx-auto text-[1.5rem] md:text-[2rem] text-[#333] text-center w-full max-w-[800px]">Agro World serves the interest of all agri stakeholders</h2>
         </div>
         <div className="flex flex-wrap justify-center gap-[20px] p-[20px] w-full">
@@ -87,12 +87,12 @@ const Body = () => {
         </div>
       </div>
       <div className="w-full text-center py-[15px] md:py-[20px] px-[10px] md:px-[20px]">
-        <h4 className="bg-[#b0da61] text-[#4c5f09] border-2 border-[#bbce53] rounded-[10px] py-[8px] px-[15px] w-fit mx-auto text-[0.8rem] md:text-[1rem] mb-2">Our Target</h4>
+        <h4 className="bg-[#F1FFB7] text-[#627324] border border-[#C8D0A9] rounded-full py-[8px] px-[15px] w-fit mx-auto text-[0.8rem] md:text-[1rem] mb-2">Our Target</h4>
         <h2 className="my-[10px] mx-auto text-center w-full text-[1.5rem] md:text-[2rem]">Impact Created to the Ecosystem</h2>
         <Cards />
       </div>
       <div className="text-center py-[20px] md:py-[40px] px-[10px] md:px-[20px] w-full">
-        <h4 className="bg-[#b0da61] text-[#4c5f09] border-2 border-[#bbce53] rounded-[10px] py-[8px] px-[15px] w-fit mx-auto text-[0.8rem] md:text-[1rem] mb-4">Stakeholder Benefits</h4>
+        <h4 className="bg-[#F1FFB7] text-[#627324] border border-[#C8D0A9] rounded-full py-[8px] px-[15px] w-fit mx-auto text-[0.8rem] md:text-[1rem] mb-4">Stakeholder Benefits</h4>
         <div className="flex flex-col md:flex-row flex-wrap justify-around gap-[20px] w-full">
           <div className="flex-1 flex flex-col gap-[10px] text-center p-[15px] min-w-[300px]">
             <div className="bg-[#f0fdf4] py-[10px] px-[15px] rounded-[10px] my-[5px] transition-all duration-300 hover:bg-[#e8f5e9] hover:-translate-y-1">🌿 Share holding opportunity to ADC</div>
@@ -115,7 +115,7 @@ const Body = () => {
       </div>
       <div className="w-full py-[15px] md:py-0 px-[10px] md:px-0">
         <div className="w-full text-center p-[20px]">
-          <h4 className="bg-[#b0da61] text-[#4c5f09] border-2 border-[#bbce53] rounded-[10px] py-[8px] px-[15px] w-fit mx-auto text-[0.8rem] md:text-[1rem] mb-2">Opportunities</h4>
+          <h4 className="bg-[#F1FFB7] text-[#627324] border border-[#C8D0A9] rounded-full py-[8px] px-[15px] w-fit mx-auto text-[0.8rem] md:text-[1rem] mb-2">Opportunities</h4>
           <div className="bg-cover bg-center bg-no-repeat p-[20px] rounded-[10px] mt-[20px] w-full" style={{ backgroundImage: `url(${Oppo})` }}>
             <Opportunities />
           </div>
