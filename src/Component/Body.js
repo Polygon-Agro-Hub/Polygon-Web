@@ -13,7 +13,7 @@ import paddy from "../images/paddy.png";
 import Footer from "./Footer";
 import HeroSection from "./Hero";
 import LeafImg from "../images/Leaf.png";
-import PaddyVector from "../images/paddyvector.png";
+import hannah from "../images/Lak.png";
 
 const Body = () => {
   const navigate = useNavigate();
@@ -228,6 +228,65 @@ const Body = () => {
             >
               Contact
             </button>
+          </div>
+        </div>
+      </div>
+      <div className="w-full text-center p-[20px] my-20">
+        <h4 className="bg-[#F1FFB7] text-[#627324] border border-[#C8D0A9] rounded-full py-[8px] px-[15px] w-fit mx-auto text-[0.8rem] md:text-[1rem] mb-4">
+          Testimonials
+        </h4>
+
+        <h2 className="text-[1.8rem] md:text-[2.5rem] font-bold text-gray-900 mb-10">
+          What People Say About Us
+        </h2>
+
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 px-4">
+          {/* Card 1 - smaller, slightly lower */}
+          <div className="bg-white border border-gray-200 rounded-2xl p-6 w-full md:w-[30%] text-center shadow-sm mt-8">
+            <p className="text-gray-700 text-[0.95rem] mb-6">
+              "This area is reserved for users/clients feedbacks This area is
+              reserved for users/clients feedbacks This area is reserved for
+              users/clients feedbacks"
+            </p>
+            <img
+              src={hannah}
+              alt="Hannah East"
+              className="w-14 h-14 rounded-full mx-auto mb-3 object-cover border border-gray-200"
+            />
+            <p className="font-bold text-gray-900 text-[1rem]">Hannah East</p>
+            <p className="text-gray-500 text-[0.85rem]">Director at CIC</p>
+          </div>
+
+          {/* Card 2 - center, taller/elevated */}
+          <div className="bg-white border border-gray-200 rounded-2xl p-8 w-full md:w-[33%] text-center shadow-md -mt-4">
+            <p className="text-gray-700 text-[0.95rem] mb-6">
+              "This area is reserved for users/clients feedbacks This area is
+              reserved for users/clients feedbacks This area is reserved for
+              users/clients feedbacks"
+            </p>
+            <img
+              src={hannah}
+              alt="Hannah East"
+              className="w-16 h-16 rounded-full mx-auto mb-3 object-cover border border-gray-200"
+            />
+            <p className="font-bold text-gray-900 text-[1rem]">Hannah East</p>
+            <p className="text-gray-500 text-[0.85rem]">Director at CIC</p>
+          </div>
+
+          {/* Card 3 - smaller, slightly lower */}
+          <div className="bg-white border border-gray-200 rounded-2xl p-6 w-full md:w-[30%] text-center shadow-sm mt-8">
+            <p className="text-gray-700 text-[0.95rem] mb-6">
+              "This area is reserved for users/clients feedbacks This area is
+              reserved for users/clients feedbacks This area is reserved for
+              users/clients feedbacks"
+            </p>
+            <img
+              src={hannah}
+              alt="Hannah East"
+              className="w-14 h-14 rounded-full mx-auto mb-3 object-cover border border-gray-200"
+            />
+            <p className="font-bold text-gray-900 text-[1rem]">Hannah East</p>
+            <p className="text-gray-500 text-[0.85rem]">Director at CIC</p>
           </div>
         </div>
       </div>
