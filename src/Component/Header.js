@@ -63,6 +63,44 @@ const Header = () => {
           </li>
           <li className="mx-[15px] my-[10px] md:my-0 w-full md:w-auto text-left md:pl-0 pl-[20px] relative" ref={dropdownRef}>
             <div className="md:inline-block w-full">
+              <button className="text-black text-[16px] pl-[10px] py-[8px] pb-[10px] md:px-[10px] md:py-[5px] transition-all duration-300 inline-block hover:text-white hover:bg-black hover:rounded-[5px] border-none bg-transparent cursor-pointer w-full md:w-auto text-left">
+                About Us ▾
+              </button>
+              {/* {isDropdownOpen && (
+                <ul className="md:absolute static top-full left-0 bg-white md:shadow-md rounded-[5px] min-w-[220px] z-[1000] m-0 p-0 md:mt-0 mt-[10px] list-none w-full box-border">
+                  <li className="border-b border-gray-200 last:border-none w-full text-left">
+                    <Link
+                      to="/InvestmentFarm"
+                      className="block text-black text-[16px] py-[10px] px-[15px] transition-colors duration-300 hover:bg-gray-100"
+                      onClick={handleLinkClick}
+                    >
+                      Investment Farm Web
+                    </Link>
+                  </li>
+                  <li className="border-b border-gray-200 last:border-none w-full text-left">
+                    <Link
+                      to="/PlantCare"
+                      className="block text-black text-[16px] py-[10px] px-[15px] transition-colors duration-300 hover:bg-gray-100"
+                      onClick={handleLinkClick}
+                    >
+                      PlantCare Mobile App
+                    </Link>
+                  </li>
+                  <li className="border-b border-gray-200 last:border-none w-full text-left">
+                    <Link
+                      to="/MarketPlace"
+                      className="block text-black text-[16px] py-[10px] px-[15px] transition-colors duration-300 hover:bg-gray-100"
+                      onClick={handleLinkClick}
+                    >
+                      Marketplace Web
+                    </Link>
+                  </li>
+                </ul>
+              )} */}
+            </div>
+          </li>
+          <li className="mx-[15px] my-[10px] md:my-0 w-full md:w-auto text-left md:pl-0 pl-[20px] relative" ref={dropdownRef}>
+            <div className="md:inline-block w-full">
               <button className="text-black text-[16px] pl-[10px] py-[8px] pb-[10px] md:px-[10px] md:py-[5px] transition-all duration-300 inline-block hover:text-white hover:bg-black hover:rounded-[5px] border-none bg-transparent cursor-pointer w-full md:w-auto text-left" onClick={toggleDropdown}>
                 Solutions ▾
               </button>
