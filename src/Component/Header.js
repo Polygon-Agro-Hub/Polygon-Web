@@ -55,104 +55,65 @@ const Header = () => {
 
       {/* Navigation */}
       <nav className={`flex-grow md:justify-start ${isMenuOpen ? "flex flex-col absolute top-[72px] left-0 w-[60%] bg-white shadow-md z-[999] py-[10px] rounded-[5px]" : "hidden md:flex"}`}>
-        <ul className="flex flex-col md:flex-row list-none m-0 p-0 md:w-auto w-full">
-          <li className="mx-[15px] my-[10px] md:my-0 w-full md:w-auto text-left md:pl-0 pl-[20px]">
-            <Link to="/" className="text-black text-[16px] px-[10px] py-[5px] transition-all duration-300 inline-block hover:text-white hover:bg-black hover:rounded-[5px]" onClick={handleLinkClick}>
-              Home
-            </Link>
-          </li>
-          <li className="mx-[15px] my-[10px] md:my-0 w-full md:w-auto text-left md:pl-0 pl-[20px] relative" ref={dropdownRef}>
-            <div className="md:inline-block w-full">
-              <button className="text-black text-[16px] pl-[10px] py-[8px] pb-[10px] md:px-[10px] md:py-[5px] transition-all duration-300 inline-block hover:text-white hover:bg-black hover:rounded-[5px] border-none bg-transparent cursor-pointer w-full md:w-auto text-left">
-                About Us ▾
-              </button>
-              {/* {isDropdownOpen && (
-                <ul className="md:absolute static top-full left-0 bg-white md:shadow-md rounded-[5px] min-w-[220px] z-[1000] m-0 p-0 md:mt-0 mt-[10px] list-none w-full box-border">
-                  <li className="border-b border-gray-200 last:border-none w-full text-left">
-                    <Link
-                      to="/InvestmentFarm"
-                      className="block text-black text-[16px] py-[10px] px-[15px] transition-colors duration-300 hover:bg-gray-100"
-                      onClick={handleLinkClick}
-                    >
-                      Investment Farm Web
-                    </Link>
-                  </li>
-                  <li className="border-b border-gray-200 last:border-none w-full text-left">
-                    <Link
-                      to="/PlantCare"
-                      className="block text-black text-[16px] py-[10px] px-[15px] transition-colors duration-300 hover:bg-gray-100"
-                      onClick={handleLinkClick}
-                    >
-                      PlantCare Mobile App
-                    </Link>
-                  </li>
-                  <li className="border-b border-gray-200 last:border-none w-full text-left">
-                    <Link
-                      to="/MarketPlace"
-                      className="block text-black text-[16px] py-[10px] px-[15px] transition-colors duration-300 hover:bg-gray-100"
-                      onClick={handleLinkClick}
-                    >
-                      Marketplace Web
-                    </Link>
-                  </li>
-                </ul>
-              )} */}
-            </div>
-          </li>
-          <li className="mx-[15px] my-[10px] md:my-0 w-full md:w-auto text-left md:pl-0 pl-[20px] relative" ref={dropdownRef}>
-            <div className="md:inline-block w-full">
-              <button className="text-black text-[16px] pl-[10px] py-[8px] pb-[10px] md:px-[10px] md:py-[5px] transition-all duration-300 inline-block hover:text-white hover:bg-black hover:rounded-[5px] border-none bg-transparent cursor-pointer w-full md:w-auto text-left" onClick={toggleDropdown}>
-                Solutions ▾
-              </button>
-              {isDropdownOpen && (
-                <ul className="md:absolute static top-full left-0 bg-white md:shadow-md rounded-[5px] min-w-[220px] z-[1000] m-0 p-0 md:mt-0 mt-[10px] list-none w-full box-border">
-                  <li className="border-b border-gray-200 last:border-none w-full text-left">
-                    <Link
-                      to="/InvestmentFarm"
-                      className="block text-black text-[16px] py-[10px] px-[15px] transition-colors duration-300 hover:bg-gray-100"
-                      onClick={handleLinkClick}
-                    >
-                      Investment Farm Web
-                    </Link>
-                  </li>
-                  <li className="border-b border-gray-200 last:border-none w-full text-left">
-                    <Link
-                      to="/PlantCare"
-                      className="block text-black text-[16px] py-[10px] px-[15px] transition-colors duration-300 hover:bg-gray-100"
-                      onClick={handleLinkClick}
-                    >
-                      PlantCare Mobile App
-                    </Link>
-                  </li>
-                  <li className="border-b border-gray-200 last:border-none w-full text-left">
-                    <Link
-                      to="/MarketPlace"
-                      className="block text-black text-[16px] py-[10px] px-[15px] transition-colors duration-300 hover:bg-gray-100"
-                      onClick={handleLinkClick}
-                    >
-                      Marketplace Web
-                    </Link>
-                  </li>
-                </ul>
-              )}
-            </div>
-          </li>
-          <li className="mx-[15px] my-[10px] md:my-0 w-full md:w-auto text-left md:pl-0 pl-[20px]">
-            <Link to="/News" className="text-black text-[16px] px-[10px] py-[5px] transition-all duration-300 inline-block hover:text-white hover:bg-black hover:rounded-[5px]" onClick={handleLinkClick}>
-              News
-            </Link>
-          </li>
-          <li className="mx-[15px] my-[10px] md:my-0 w-full md:w-auto text-left md:pl-0 pl-[20px] md:ml-auto">
-            <Link
-              to="/contact"
-              className="text-black text-[16px] px-[10px] py-[5px] md:ml-[30vw] transition-all duration-300 inline-block border border-black rounded-[15px] hover:bg-black hover:text-white"
-              onClick={handleLinkClick}
-            >
-              Contact Us
-            </Link>
-          </li>
-        </ul>
-      </nav>
+  <ul className="flex flex-col md:flex-row list-none m-0 p-0 md:w-full w-full md:items-center">
+    <li className="mx-[25px] my-[10px] md:my-0 w-full md:w-auto text-left md:pl-0 pl-[20px]">
+      <Link to="/" className="text-black text-[16px] px-[10px] py-[5px] transition-all duration-300 inline-block hover:text-white hover:bg-black hover:rounded-[5px]" onClick={handleLinkClick}>
+        Home
+      </Link>
+    </li>
+    <li className="mx-[25px] my-[10px] md:my-0 w-full md:w-auto text-left md:pl-0 pl-[20px] relative" ref={dropdownRef}>
+      <div className="md:inline-block w-full">
+        <button className="text-black text-[16px] pl-[10px] py-[8px] pb-[10px] md:px-[10px] md:py-[5px] transition-all duration-300 inline-block hover:text-white hover:bg-black hover:rounded-[5px] border-none bg-transparent cursor-pointer w-full md:w-auto text-left">
+          About Us ▾
+        </button>
+      </div>
+    </li>
+    <li className="mx-[25px] my-[10px] md:my-0 w-full md:w-auto text-left md:pl-0 pl-[20px] relative" ref={dropdownRef}>
+      <div className="md:inline-block w-full">
+        <button className="text-black text-[16px] pl-[10px] py-[8px] pb-[10px] md:px-[10px] md:py-[5px] transition-all duration-300 inline-block hover:text-white hover:bg-black hover:rounded-[5px] border-none bg-transparent cursor-pointer w-full md:w-auto text-left" onClick={toggleDropdown}>
+          Solutions ▾
+        </button>
+        {isDropdownOpen && (
+          <ul className="md:absolute static top-full left-0 bg-white md:shadow-md rounded-[5px] min-w-[220px] z-[1000] m-0 p-0 md:mt-0 mt-[10px] list-none w-full box-border">
+            <li className="border-b border-gray-200 last:border-none w-full text-left">
+              <Link to="/InvestmentFarm" className="block text-black text-[16px] py-[10px] px-[15px] transition-colors duration-300 hover:bg-gray-100" onClick={handleLinkClick}>
+                Investment Farm Web
+              </Link>
+            </li>
+            <li className="border-b border-gray-200 last:border-none w-full text-left">
+              <Link to="/PlantCare" className="block text-black text-[16px] py-[10px] px-[15px] transition-colors duration-300 hover:bg-gray-100" onClick={handleLinkClick}>
+                PlantCare Mobile App
+              </Link>
+            </li>
+            <li className="border-b border-gray-200 last:border-none w-full text-left">
+              <Link to="/MarketPlace" className="block text-black text-[16px] py-[10px] px-[15px] transition-colors duration-300 hover:bg-gray-100" onClick={handleLinkClick}>
+                Marketplace Web
+              </Link>
+            </li>
+          </ul>
+        )}
+      </div>
+    </li>
+    <li className="mx-[25px] my-[10px] md:my-0 w-full md:w-auto text-left md:pl-0 pl-[20px]">
+      <Link to="/News" className="text-black text-[16px] px-[10px] py-[5px] transition-all duration-300 inline-block hover:text-white hover:bg-black hover:rounded-[5px]" onClick={handleLinkClick}>
+        News
+      </Link>
+    </li>
+
+    {/* Spacer pushes Contact Us to far right */}
+    <li className="hidden md:block md:flex-1"></li>
+
+    <li className="mx-[25px] my-[10px] md:my-0 w-full md:w-auto text-left md:pl-0 pl-[20px]">
+      <Link
+        to="/contact"
+        className="text-black text-[16px] px-[14px] py-[6px] transition-all duration-300 inline-block border border-black rounded-[15px] hover:bg-black hover:text-white"
+        onClick={handleLinkClick}
+      >
+        Contact Us
+      </Link>
+    </li>
+  </ul>
+</nav>
     </header>
   );
 };
