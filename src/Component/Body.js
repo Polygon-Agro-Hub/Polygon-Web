@@ -13,6 +13,7 @@ import paddy from "../images/paddy.png";
 import Footer from "./Footer";
 import HeroSection from "./Hero";
 import LeafImg from "../images/Leaf.png";
+import PaddyVector from "../images/paddyvector.png";
 
 const Body = () => {
   const navigate = useNavigate();
@@ -205,10 +206,7 @@ const Body = () => {
           <h4 className="bg-[#F1FFB7] text-[#627324] border border-[#C8D0A9] rounded-full py-[8px] px-[15px] w-fit mx-auto text-[0.8rem] md:text-[1rem] mb-2">
             Opportunities
           </h4>
-          <div
-            className="bg-cover bg-center bg-no-repeat p-[20px] rounded-[10px] mt-[20px] w-full"
-            style={{ backgroundImage: `url(${Oppo})` }}
-          >
+          <div>
             <Opportunities />
           </div>
         </div>
