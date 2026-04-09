@@ -69,7 +69,7 @@ const Body = () => {
       <div className="w-full p-[15px] md:p-[20px] text-center">
         <div className="text-center mb-[20px] w-full">
           <h4 className="bg-[#F1FFB7] text-[#627324] border border-[#C8D0A9] rounded-full py-[8px] px-[15px] w-fit mx-auto text-[0.8rem] md:text-[1rem]">Solution Components</h4>
-          <h2 className="my-[10px] mx-auto text-[1.5rem] md:text-[2rem] text-[#333] text-center w-full max-w-[800px]">Agro World serves the interest of all agri stakeholders</h2>
+          <h2 className="my-[10px] mx-auto text-[1.5rem] md:text-[2rem] text-[#333] text-center w-full max-w-[800px]">Polygon Agro serves the interest of all agri stakeholders</h2>
         </div>
         <div className="flex flex-wrap justify-center gap-[20px] p-[20px] w-full">
           {CardData.map((card, index) => (
