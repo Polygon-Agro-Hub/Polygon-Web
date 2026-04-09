@@ -25,23 +25,43 @@ const Body = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 md:gap-5 text-white p-3 md:p-5 items-center w-full">
         <HeroSection />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 text-center p-3 md:p-5 bg-[#f9f9f9] w-full">
-        <div className="w-full max-w-[400px] mx-auto order-last md:order-first">
-          <img src={About} alt="about" className="w-full h-auto block" />
-        </div>
-        <div className="flex justify-center items-center order-first md:order-last">
-          <div className="flex flex-col gap-[15px] p-[10px] w-full items-center">
-            <h4 className="bg-[#b0da61] text-[#4c5f09] border-2 border-[#bbce53] rounded-[10px] py-[8px] px-[15px] w-fit mx-auto text-[0.8rem] md:text-[1rem]">About Us</h4>
-            <h2 className="text-center w-full text-[1.5rem] md:text-[2rem] leading-snug">Changing the landscape of agriculture</h2>
-            <p className="text-center w-full px-[10px] text-[0.9rem] md:text-[1rem]">
-              Agro World is a Sri Lankan Agri-FinTech Startup Company<br className="hidden md:inline" />
-              helping farmers and investors to maximize their wealth by<br className="hidden md:inline" />
-              optimizing the agriculture value chain by creating an<br className="hidden md:inline" />
-              investment-to-shelf digital platform
-            </p>
-          </div>
-        </div>
-      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-[60px] p-[60px_80px] bg-white items-center">
+
+  {/* Left: Image with gray decorative card */}
+  <div className="relative pb-[30px] pr-[30px] order-last md:order-first">
+    <div className="absolute bottom-0 right-0 w-[82%] h-[82%] bg-[#e8e8e8] rounded-[20px] z-0"></div>
+    <img src={About} alt="about" className="relative z-10 w-full h-auto object-cover rounded-[18px] block" />
+  </div>
+
+  {/* Right: Text */}
+  <div className="flex flex-col gap-[22px] items-start order-first md:order-last">
+
+    <span className="bg-[#F1FFB7] text-[#627324] border border-[#C8D0A9] rounded-full py-[6px] px-[22px] text-[14px] self-center">
+      About Us
+    </span>
+
+    <h2 className="text-[2rem] font-semibold leading-snug m-0">
+      Changing the landscape of agriculture
+    </h2>
+
+    <p className="text-[1rem] leading-loose m-0 text-gray-500">
+      Polygon Agro Holdings is a Sri Lankan Agri-FinTech<br />
+      Startup Company helping farmers and investors to<br />
+      maximize their wealth by optimizing the agriculture value<br />
+      chain by creating an investment-to-shelf digital platform
+    </p>
+
+    <button className="flex items-center gap-[14px] bg-transparent border-none cursor-pointer p-0 mt-[6px]">
+      <span className="w-[52px] h-[52px] bg-red-600 rounded-full flex items-center justify-center flex-shrink-0">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white" style={{marginLeft: '3px'}}>
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+      </span>
+      <span className="text-[1rem] font-semibold text-black">Watch Video</span>
+    </button>
+
+  </div>
+</div>
       <div className="flex flex-col items-center text-center py-[20px] md:py-[30px] px-[10px] md:px-[20px] w-full">
         <h4 className="bg-[#b0da61] text-[#4c5f09] border-2 border-[#bbce53] rounded-[10px] py-[8px] px-[15px] w-fit mx-auto text-[0.8rem] md:text-[1rem] mb-4">AgroWorld Eco System</h4>
         <img src={Eco} alt="eco-img" className="max-w-full h-auto px-[10px] block" />
