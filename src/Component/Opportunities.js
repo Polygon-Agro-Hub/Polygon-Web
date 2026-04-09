@@ -11,17 +11,17 @@ import PaddyVector from "../images/paddyvector.png";
 
 const Opportunities = () => {
   return (
-    <div className="relative py-[60px] px-[20px] overflow-hidden mt-10">
+    <div className="relative py-[60px] px-[20px] overflow-hidden mt-5">
       {/* Paddy Vector - Top Left */}
       <img
         src={PaddyVector}
         alt=""
-        className="absolute w-full pt-9 h-80 bg-[#e8f5e9] top-0 left-0 bg-cover bg-center bg-no-repeat"
+        className="absolute w-full pt-9 h-80 bg-[#e8f5e9] bg-cover bg-bottom bg-no-repeat"
       />
 
       {/* Cards */}
       <div>
-        <div className="flex flex-wrap gap-[20px] justify-center relative z-10 mt-10">
+        <div className="flex flex-wrap gap-[20px] justify-center relative z-10 mt-[100px]">
           {[
             {
               image: image1,
