@@ -4,7 +4,7 @@ import MP from '../../images/MP.png';
 const CardData = [
     {
       image:Blue, // Replace with your image paths
-      topic: "InvestmentFarm Web Portal",
+      topic: "GoViCapital Web Portal",
       texts: [
         "Identify opportunities to invest in fund-raising farms",
         "Purchase agri-stocks in a particular crop",
@@ -14,7 +14,7 @@ const CardData = [
     },
     {
       image: PC,
-      topic: "Plant Care Mobile App",
+      topic: "GoViCare Mobile App",
       texts: [
         "Receive specific advice on individual crop care",
         "Auto detect crop health, pests, and diseases with AI",
@@ -24,7 +24,7 @@ const CardData = [
     },
     {
       image: MP,
-      topic: "MarketPlace Web",
+      topic: "GoViMart Web",
       texts: [
         "Auto-publish crop stock updates to e-marketplaces",
         "Set optimal pricing based on market trends",
