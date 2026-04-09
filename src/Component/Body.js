@@ -210,18 +210,20 @@ const Body = () => {
             <Opportunities />
           </div>
         </div>
-        <div className="relative w-full h-[400px] overflow-hidden mt-[20px]">
+        <div className="relative w-full h-auto overflow-hidden mt-[20px]">
           <img
             src={paddy}
             alt="Agricultural Background"
             className="w-full h-full object-cover block"
           />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white z-[2] w-[90%] drop-shadow-md">
-            <h1 className="text-[1.5rem] md:text-[2.5rem] mb-[15px] leading-snug">
-              Get involved in Agricultural Uprising
+            <h1 className="text-[1.5rem] md:text-[3.5rem] mb-[15px] leading-snug font-bold">
+              Get involved in
+              <br />
+              Agricultural uprising
             </h1>
             <button
-              className="bg-[#2c2d2c] hover:bg-[#45a049] text-white border-none py-[8px] px-[16px] md:py-[10px] md:px-[20px] rounded-[5px] text-[0.9rem] md:text-[1rem] cursor-pointer transition-all duration-300 hover:scale-105"
+              className="bg-[#2c2d2c] hover:bg-[#45a049] text-white border-none py-[8px] px-[24px] md:py-[10px] md:px-[28px] rounded-full text-[0.9rem] md:text-[1rem] cursor-pointer transition-all duration-300 hover:scale-105"
               onClick={handleContactClick}
             >
               Contact
