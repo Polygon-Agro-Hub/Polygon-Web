@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import logo from "../images/POLYGON ORIGINAL LOGO.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
   const headerRef = useRef(null);
+  const location = useLocation();
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -21,6 +22,11 @@ const Header = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, [location.pathname]);
 
   // Toggle dropdown visibility
   const toggleDropdown = (e) => {
@@ -77,17 +83,17 @@ const Header = () => {
           <ul className="md:absolute static top-full left-0 bg-white md:shadow-md rounded-[5px] min-w-[220px] z-[1000] m-0 p-0 md:mt-0 mt-[10px] list-none w-full box-border">
             <li className="border-b border-gray-200 last:border-none w-full text-left">
               <Link to="/InvestmentFarm" className="block text-black text-[16px] py-[10px] px-[15px] transition-colors duration-300 hover:bg-gray-100" onClick={handleLinkClick}>
-                Investment Farm Web
+                GoViCapital Web
               </Link>
             </li>
             <li className="border-b border-gray-200 last:border-none w-full text-left">
               <Link to="/PlantCare" className="block text-black text-[16px] py-[10px] px-[15px] transition-colors duration-300 hover:bg-gray-100" onClick={handleLinkClick}>
-                PlantCare Mobile App
+                 GoViCare Mobile App
               </Link>
             </li>
             <li className="border-b border-gray-200 last:border-none w-full text-left">
               <Link to="/MarketPlace" className="block text-black text-[16px] py-[10px] px-[15px] transition-colors duration-300 hover:bg-gray-100" onClick={handleLinkClick}>
-                Marketplace Web
+                GoViMart Web
               </Link>
             </li>
           </ul>
