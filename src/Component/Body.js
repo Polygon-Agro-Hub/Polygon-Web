@@ -12,35 +12,44 @@ import Opportunities from "./Opportunities";
 import paddy from "../images/paddy.png";
 import Footer from "./Footer";
 import HeroSection from "./Hero";
-import LeafImg from '../images/Leaf.png'; 
+import LeafImg from "../images/Leaf.png";
 
 const Body = () => {
   const navigate = useNavigate();
   const LeafIcon = () => (
-  <img
-    src={LeafImg}
-    alt="leaf"
-    style={{ width: '32px', height: '32px', flexShrink: 0, objectFit: 'contain' }}
-  />
-);
+    <img
+      src={LeafImg}
+      alt="leaf"
+      style={{
+        width: "32px",
+        height: "32px",
+        flexShrink: 0,
+        objectFit: "contain",
+      }}
+    />
+  );
 
-// Left column margins  [ml, mr]
-const leftCards = [
-  { text: "Share holding opportunity to ADC",    ml: 0,   mr: 120 },
-  { text: "Stable farm-gate price",              ml: 60,  mr: 60  },
-  { text: "Planned cultivation",                 ml: 120, mr: 0   },
-  { text: "Crop insurance free of charge",       ml: 60,  mr: 60  },
-  { text: "Farmer pension scheme for a future",  ml: 0,   mr: 120 },
-];
+  // Left column margins  [ml, mr]
+  const leftCards = [
+    { text: "Share holding opportunity to ADC", ml: 0, mr: 120 },
+    { text: "Stable farm-gate price", ml: 60, mr: 60 },
+    { text: "Planned cultivation", ml: 120, mr: 0 },
+    { text: "Crop insurance free of charge", ml: 60, mr: 60 },
+    { text: "Farmer pension scheme for a future", ml: 0, mr: 120 },
+  ];
 
-// Right column margins  [ml, mr]
-const rightCards = [
-  { text: "Transport and logistics facility",                  ml: 120, mr: 0   },
-  { text: "Edu-programmes for quality & productivity",         ml: 60,  mr: 60  },
-  { text: "Impacts of post-harvest loss reduction",            ml: 0,   mr: 120 },
-  { text: "Agri modernisation and tech-adaptation",            ml: 60,  mr: 60  },
-  { text: "Centralized e-platform to supply-chain-management", ml: 120, mr: 0   },
-];
+  // Right column margins  [ml, mr]
+  const rightCards = [
+    { text: "Transport and logistics facility", ml: 120, mr: 0 },
+    { text: "Edu-programmes for quality & productivity", ml: 60, mr: 60 },
+    { text: "Impacts of post-harvest loss reduction", ml: 0, mr: 120 },
+    { text: "Agri modernisation and tech-adaptation", ml: 60, mr: 60 },
+    {
+      text: "Centralized e-platform to supply-chain-management",
+      ml: 120,
+      mr: 0,
+    },
+  ];
 
   const handleContactClick = () => {
     navigate("/contact");
@@ -148,41 +157,49 @@ const rightCards = [
         <Cards />
       </div>
       <div className="text-center py-[20px] md:py-[60px] px-[10px] md:px-[30px] w-full">
-  <h4 className="bg-[#F1FFB7] text-[#627324] border border-[#C8D0A9] rounded-full py-[8px] px-[20px] w-fit mx-auto text-[0.85rem] mb-[50px]">
-    Stakeholder Benefits
-  </h4>
+        <h4 className="bg-[#F1FFB7] text-[#627324] border border-[#C8D0A9] rounded-full py-[8px] px-[20px] w-fit mx-auto text-[0.85rem] mb-[50px]">
+          Stakeholder Benefits
+        </h4>
 
-  <div className="flex flex-row justify-between items-center gap-[16px] w-full">
+        <div className="flex flex-row justify-between items-center gap-[16px] w-full">
+          {/* Left Column */}
+          <div className="flex-1 flex flex-col gap-[20px] min-w-0">
+            {leftCards.map((item, i) => (
+              <div
+                key={i}
+                style={{ marginLeft: item.ml, marginRight: item.mr }}
+                className="flex items-center gap-[12px] bg-[#eaf6e4] rounded-[12px] py-[15px] px-[18px] text-[0.95rem] text-[#222] hover:bg-[#d6eece] transition-all duration-200"
+              >
+                <LeafIcon />
+                <span className="text-left">{item.text}</span>
+              </div>
+            ))}
+          </div>
 
-    {/* Left Column */}
-    <div className="flex-1 flex flex-col gap-[20px] min-w-0">
-      {leftCards.map((item, i) => (
-        <div key={i} style={{marginLeft: item.ml, marginRight: item.mr}}
-          className="flex items-center gap-[12px] bg-[#eaf6e4] rounded-[12px] py-[15px] px-[18px] text-[0.95rem] text-[#222] hover:bg-[#d6eece] transition-all duration-200">
-          <LeafIcon />
-          <span className="text-left">{item.text}</span>
+          {/* Center Image */}
+          <div className="flex-shrink-0 w-[240px] flex items-center justify-center">
+            <img
+              src={Center}
+              alt="Illustration"
+              className="w-full h-auto block"
+            />
+          </div>
+
+          {/* Right Column */}
+          <div className="flex-1 flex flex-col gap-[20px] min-w-0">
+            {rightCards.map((item, i) => (
+              <div
+                key={i}
+                style={{ marginLeft: item.ml, marginRight: item.mr }}
+                className="flex items-center gap-[12px] bg-[#eaf6e4] rounded-[12px] py-[15px] px-[18px] text-[0.95rem] text-[#222] hover:bg-[#d6eece] transition-all duration-200"
+              >
+                <LeafIcon />
+                <span className="text-left">{item.text}</span>
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-
-    {/* Center Image */}
-    <div className="flex-shrink-0 w-[240px] flex items-center justify-center">
-      <img src={Center} alt="Illustration" className="w-full h-auto block" />
-    </div>
-
-    {/* Right Column */}
-    <div className="flex-1 flex flex-col gap-[20px] min-w-0">
-      {rightCards.map((item, i) => (
-        <div key={i} style={{marginLeft: item.ml, marginRight: item.mr}}
-          className="flex items-center gap-[12px] bg-[#eaf6e4] rounded-[12px] py-[15px] px-[18px] text-[0.95rem] text-[#222] hover:bg-[#d6eece] transition-all duration-200">
-          <LeafIcon />
-          <span className="text-left">{item.text}</span>
-        </div>
-      ))}
-    </div>
-
-  </div>
-</div>
+      </div>
       <div className="w-full py-[15px] md:py-0 px-[10px] md:px-0">
         <div className="w-full text-center p-[20px]">
           <h4 className="bg-[#F1FFB7] text-[#627324] border border-[#C8D0A9] rounded-full py-[8px] px-[15px] w-fit mx-auto text-[0.8rem] md:text-[1rem] mb-2">
