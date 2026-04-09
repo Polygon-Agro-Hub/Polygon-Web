@@ -25,26 +25,26 @@ const Body = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 md:gap-5 text-white p-3 md:p-5 items-center w-full">
         <HeroSection />
       </div>
-      <div className="flex flex-col items-center text-center py-12 px-6 max-w-4xl mx-auto w-full">
+      <div className="flex flex-col items-center text-center py-12 px-6 max-w-1xl mx-auto w-full">
         <div className="mb-6">
-          <h2 className="text-[36px] text-[#000000] leading-tight font-[500] Inter tracking-wider">
+          <h2 className="text-[36px] text-[#000000] leading-[50px] font-[500] tracking-wider Inter-Medium">
             Empowering Farmers, Feeding the Nation
           </h2>
           <div className="h-[5px] bg-[#F40064] mt-3 w-full rounded-sm" />
         </div>
 
-        <p className="text-[1rem] md:text-[1.1rem] text-gray-700 leading-relaxed mt-4">
+        <p className="font-[400] text-[20px] leading-[36px] Inter-Regular tracking-widest mt-4 text-[#353535]">
           Agro Benefit Lanka is transforming the way Sri Lanka grows and shares
-          its harvest. We empower farmers to become successful agripreneurs,
-          connecting their hard work directly to the homes and hearts of our
-          people. Through technology and trust, we bring fresh, wholesome
-          produce from our fields to your table, building a fair, sustainable,
-          and proudly local food movement.
+          its harvest. We empower farmers to become <br /> successful
+          agripreneurs, connecting their hard work directly to the homes and
+          hearts of our people. Through <br /> technology and trust, we bring
+          fresh, wholesome produce from our fields to your table, building a
+          fair, sustainable, and <br /> proudly local food movement.
         </p>
 
         <a
           href="#"
-          className="mt-6 text-[#e8004d] underline underline-offset-4 text-[1rem] font-medium hover:text-[#c0003e] transition-colors"
+          className="mt-6 text-[#F40064] Inter-Regular font-[400] text-[20px] tracking-widest leading-[28px] underline underline-offset-4 hover:text-[#c0003e] transition-colors"
         >
           Learn More
         </a>
