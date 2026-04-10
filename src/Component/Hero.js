@@ -23,7 +23,7 @@ const HeroSection = () => {
         <img
           src={rightImage}
           alt="Agriculture Growth"
-          className="w-full h-auto md:h-[70vh] object-cover rounded-tl-[100px]"
+          className="w-full h-auto md:h-[68vh] object-cover rounded-tl-[100px]"
         />
       </div>
 
