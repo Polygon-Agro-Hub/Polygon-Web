@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CardComponent from "./CardComponent";
 import CardData from "./Model/CardData";
@@ -17,6 +17,7 @@ import hannah from "../images/Lak.png";
 
 const Body = () => {
   const navigate = useNavigate();
+  const [showAll, setShowAll] = useState(false);
   const LeafIcon = () => (
     <img
       src={LeafImg}
@@ -211,44 +212,43 @@ const Body = () => {
           </div>
 
           {/* Right Column */}
-<div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "20px", minWidth: 0 }}>
-  {rightCards.map((item, i) => (
-    <div
-      key={i}
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "12px",
-        background: "#eaf6e4",
-        borderRadius: "12px",
-        padding: "15px 18px",
-        fontSize: "0.95rem",
-        color: "#222",
-        cursor: "pointer",
-        marginLeft: i % 2 === 0 ? "0px" : "80px",
-        marginRight: i % 2 === 0 ? "80px" : "0px",
-      }}
-    >
-      <LeafIcon />
-      <span style={{ textAlign: "left" }}>{item.text}</span>
-    </div>
-  ))}
-</div>
+          <div
+            style={{
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              gap: "20px",
+              minWidth: 0,
+            }}
+          >
+            {rightCards.map((item, i) => (
+              <div
+                key={i}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "12px",
+                  background: "#eaf6e4",
+                  borderRadius: "12px",
+                  padding: "15px 18px",
+                  fontSize: "0.95rem",
+                  color: "#222",
+                  cursor: "pointer",
+                  marginLeft: i % 2 === 0 ? "0px" : "80px",
+                  marginRight: i % 2 === 0 ? "80px" : "0px",
+                }}
+              >
+                <LeafIcon />
+                <span style={{ textAlign: "left" }}>{item.text}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Mobile Layout — single column, all cards stacked */}
-        <div className="flex md:hidden flex-col gap-[14px] w-full">
-          {/* Center image on top for mobile */}
-          <div style={{ width: "180px", margin: "0 auto 16px" }}>
-            <img
-              src={Center}
-              alt="Illustration"
-              style={{ width: "100%", height: "auto", display: "block" }}
-            />
-          </div>
-
-          {/* All cards stacked */}
-          {[...leftCards, ...rightCards].map((item, i) => (
+        {/* Mobile Layout */}
+        <div className="flex md:hidden flex-col gap-[20px] w-full">
+          {/* Left cards always visible */}
+          {leftCards.map((item, i) => (
             <div
               key={i}
               style={{
@@ -260,12 +260,56 @@ const Body = () => {
                 padding: "14px 16px",
                 fontSize: "0.9rem",
                 color: "#222",
+                marginLeft: i % 2 === 0 ? "0px" : "60px",
+                marginRight: i % 2 === 0 ? "60px" : "0px",
               }}
             >
               <LeafIcon />
               <span style={{ textAlign: "left" }}>{item.text}</span>
             </div>
           ))}
+
+          {/* Right cards — only shown when showAll is true */}
+          {showAll &&
+            rightCards.map((item, i) => (
+              <div
+                key={i}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "12px",
+                  background: "#eaf6e4",
+                  borderRadius: "12px",
+                  padding: "14px 16px",
+                  fontSize: "0.9rem",
+                  color: "#222",
+                  marginLeft: i % 2 === 0 ? "0px" : "60px",
+                  marginRight: i % 2 === 0 ? "60px" : "0px",
+                }}
+              >
+                <LeafIcon />
+                <span style={{ textAlign: "left" }}>{item.text}</span>
+              </div>
+            ))}
+
+          {/* View all / View less toggle */}
+          <button
+            onClick={() => setShowAll(!showAll)}
+            style={{
+              display: "inline-block",
+              marginTop: "10px",
+              fontSize: "1rem",
+              color: "#222",
+              textDecoration: "underline",
+              textAlign: "center",
+              background: "transparent",
+              border: "none",
+              cursor: "pointer",
+              width: "100%",
+            }}
+          >
+            {showAll ? "View less" : "View all"}
+          </button>
         </div>
       </div>
       <div className="w-full py-[15px] md:py-0 px-[10px] md:px-0">
