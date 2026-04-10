@@ -342,7 +342,7 @@ const Body = () => {
           </div>
         </div>
       </div>
-      <div className="w-full text-center p-[20px] my-20">
+      <div className="w-full text-center p-[20px] my-20 hidden">
         <h4 className="bg-[#F1FFB7] text-[#627324] border border-[#C8D0A9] rounded-full py-[8px] px-[15px] w-fit mx-auto text-[0.8rem] md:text-[1rem] mb-4">
           Testimonials
         </h4>
@@ -401,6 +401,7 @@ const Body = () => {
           </div>
         </div>
       </div>
+      <div className="w-full text-center p-[20px] my-20"></div>
       <div className="w-full">
         <Footer />
       </div>
