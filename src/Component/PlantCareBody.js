@@ -136,7 +136,7 @@ const PlantCareBody = () => {
         </div>
       </div>
       <div className="p-[20px] md:p-[60px] flex justify-center">
-        <div className="bg-[#1F4E3D] w-full max-w-[1400px] rounded-[30px] p-[40px] md:p-[60px] relative overflow-hidden flex flex-col md:flex-row items-center justify-between text-white">
+        <div className="bg-[#182D36] w-full max-w-[1400px] rounded-[30px] p-[40px] md:p-[60px] relative overflow-hidden flex flex-col md:flex-row items-center justify-between text-white">
           {/* Text and Buttons Content */}
           <div className="z-10 text-center md:text-left md:max-w-[90%]">
             <h2 className="text-[2rem] md:text-[3rem] font-serif mb-[20px]">
