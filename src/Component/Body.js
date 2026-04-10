@@ -158,43 +158,114 @@ const Body = () => {
           Stakeholder Benefits
         </h4>
 
-        <div className="flex flex-row justify-between items-center gap-[16px] w-full">
+        {/* Desktop Layout */}
+        <div className="hidden md:flex flex-row justify-between items-center gap-[16px] w-full">
           {/* Left Column */}
-          <div className="flex-1 flex flex-col gap-[20px] min-w-0">
+          <div
+            style={{
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              gap: "20px",
+              minWidth: 0,
+            }}
+          >
             {leftCards.map((item, i) => (
               <div
                 key={i}
-                style={{ marginLeft: item.ml, marginRight: item.mr }}
-                className="flex items-center gap-[12px] bg-[#eaf6e4] rounded-[12px] py-[15px] px-[18px] text-[0.95rem] text-[#222] hover:bg-[#d6eece] transition-all duration-200"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "12px",
+                  background: "#eaf6e4",
+                  borderRadius: "12px",
+                  padding: "15px 18px",
+                  fontSize: "0.95rem",
+                  color: "#222",
+                  cursor: "pointer",
+                  marginLeft: i % 2 === 0 ? "0px" : "80px",
+                  marginRight: i % 2 === 0 ? "80px" : "0px",
+                }}
               >
                 <LeafIcon />
-                <span className="text-left">{item.text}</span>
+                <span style={{ textAlign: "left" }}>{item.text}</span>
               </div>
             ))}
           </div>
 
           {/* Center Image */}
-          <div className="flex-shrink-0 w-[240px] flex items-center justify-center">
+          <div
+            style={{
+              flexShrink: 0,
+              width: "240px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             <img
               src={Center}
               alt="Illustration"
-              className="w-full h-auto block"
+              style={{ width: "100%", height: "auto", display: "block" }}
             />
           </div>
 
           {/* Right Column */}
-          <div className="flex-1 flex flex-col gap-[20px] min-w-0">
-            {rightCards.map((item, i) => (
-              <div
-                key={i}
-                style={{ marginLeft: item.ml, marginRight: item.mr }}
-                className="flex items-center gap-[12px] bg-[#eaf6e4] rounded-[12px] py-[15px] px-[18px] text-[0.95rem] text-[#222] hover:bg-[#d6eece] transition-all duration-200"
-              >
-                <LeafIcon />
-                <span className="text-left">{item.text}</span>
-              </div>
-            ))}
+<div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "20px", minWidth: 0 }}>
+  {rightCards.map((item, i) => (
+    <div
+      key={i}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "12px",
+        background: "#eaf6e4",
+        borderRadius: "12px",
+        padding: "15px 18px",
+        fontSize: "0.95rem",
+        color: "#222",
+        cursor: "pointer",
+        marginLeft: i % 2 === 0 ? "0px" : "80px",
+        marginRight: i % 2 === 0 ? "80px" : "0px",
+      }}
+    >
+      <LeafIcon />
+      <span style={{ textAlign: "left" }}>{item.text}</span>
+    </div>
+  ))}
+</div>
+        </div>
+
+        {/* Mobile Layout — single column, all cards stacked */}
+        <div className="flex md:hidden flex-col gap-[14px] w-full">
+          {/* Center image on top for mobile */}
+          <div style={{ width: "180px", margin: "0 auto 16px" }}>
+            <img
+              src={Center}
+              alt="Illustration"
+              style={{ width: "100%", height: "auto", display: "block" }}
+            />
           </div>
+
+          {/* All cards stacked */}
+          {[...leftCards, ...rightCards].map((item, i) => (
+            <div
+              key={i}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "12px",
+                background: "#eaf6e4",
+                borderRadius: "12px",
+                padding: "14px 16px",
+                fontSize: "0.9rem",
+                color: "#222",
+              }}
+            >
+              <LeafIcon />
+              <span style={{ textAlign: "left" }}>{item.text}</span>
+            </div>
+          ))}
         </div>
       </div>
       <div className="w-full py-[15px] md:py-0 px-[10px] md:px-0">
