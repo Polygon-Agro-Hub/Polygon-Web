@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CardComponent from "./CardComponent";
 import CardData from "./Model/CardData";
@@ -17,6 +17,7 @@ import hannah from "../images/Lak.png";
 
 const Body = () => {
   const navigate = useNavigate();
+  const [showAll, setShowAll] = useState(false);
   const LeafIcon = () => (
     <img
       src={LeafImg}
@@ -58,13 +59,12 @@ const Body = () => {
 
   return (
     <div className="w-full overflow-x-hidden max-w-[100vw]">
-      <div className="items-center w-full">
+      <div className="w-full">
         <HeroSection />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-[60px] p-[60px_80px] bg-white items-center">
-        {/* Left: Image with gray decorative card */}
-        <div className="relative pb-[30px] pr-[30px] order-last md:order-first">
-          <div className="absolute bottom-0 right-0 w-[82%] h-[82%] bg-[#e8e8e8] rounded-[20px] z-0"></div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-[40px] md:gap-[60px] px-6 py-10 md:p-[60px_80px] bg-white items-center">
+        {/* Left: Image — hidden on mobile, visible on desktop */}
+        <div className="relative pb-[30px] pr-[30px] order-last md:order-first hidden md:block">
           <img
             src={About}
             alt="about"
@@ -73,23 +73,20 @@ const Body = () => {
         </div>
 
         {/* Right: Text */}
-        <div className="flex flex-col gap-[22px] items-start order-first md:order-last">
-          <span className="bg-[#F1FFB7] text-[#627324] border border-[#C8D0A9] rounded-full py-[6px] px-[22px] text-[14px] self-center">
+        <div className="flex flex-col gap-[22px] items-center md:items-start order-first md:order-last text-center md:text-left">
+          <span className="bg-[#F1FFB7] text-[#627324] border border-[#C8D0A9] rounded-full py-[6px] px-[22px] text-[14px]">
             About Us
           </span>
 
-          <h2 className="text-[2rem] font-semibold leading-snug m-0">
+          <h2 className="text-[1.6rem] md:text-[2rem] font-semibold leading-snug m-0">
             Changing the landscape of agriculture
           </h2>
 
-          <p className="text-[1rem] leading-loose m-0 text-gray-500">
-            Polygon Agro Holdings is a Sri Lankan Agri-FinTech
-            <br />
-            Startup Company helping farmers and investors to
-            <br />
-            maximize their wealth by optimizing the agriculture value
-            <br />
-            chain by creating an investment-to-shelf digital platform
+          <p className="text-[0.95rem] md:text-[1rem] leading-loose m-0 text-gray-500">
+            Polygon Agro Holdings is a Sri Lankan Agri-FinTech Startup Company
+            helping farmers and investors to maximize their wealth by optimizing
+            the agriculture value chain by creating an investment-to-shelf
+            digital platform
           </p>
 
           <button className="flex items-center gap-[14px] bg-transparent border-none cursor-pointer p-0 mt-[6px]">
@@ -110,8 +107,8 @@ const Body = () => {
           </button>
         </div>
       </div>
-      <div className="flex flex-col items-center text-center py-[20px] md:py-[30px] px-[10px] md:px-[20px] w-full">
-        <h4 className="bg-[#F1FFB7] text-[#627324] border border-[#C8D0A9] rounded-full py-[6px] px-[22px] text-[14px] self-center mb-4">
+      <div className="flex flex-col items-center text-center py-[20px] md:py-[30px] px-[10px] md:px-32 w-full">
+        <h4 className="bg-[#F1FFB7] text-[#627324] border border-[#C8D0A9] rounded-full py-[6px] px-[22px] text-[14px] self-center mb-20">
           Polygon Agro Eco System
         </h4>
         <img
@@ -140,7 +137,7 @@ const Body = () => {
             />
           ))}
         </div>
-        <div className="w-full flex justify-center mt-[20px]">
+        <div className="w-full hidden md:flex justify-center mt-[20px]">
           <img
             src={Solution}
             alt="Solution"
@@ -162,43 +159,157 @@ const Body = () => {
           Stakeholder Benefits
         </h4>
 
-        <div className="flex flex-row justify-between items-center gap-[16px] w-full">
+        {/* Desktop Layout */}
+        <div className="hidden md:flex flex-row justify-between items-center gap-[16px] w-full">
           {/* Left Column */}
-          <div className="flex-1 flex flex-col gap-[20px] min-w-0">
+          <div
+            style={{
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              gap: "20px",
+              minWidth: 0,
+            }}
+          >
             {leftCards.map((item, i) => (
               <div
                 key={i}
-                style={{ marginLeft: item.ml, marginRight: item.mr }}
-                className="flex items-center gap-[12px] bg-[#eaf6e4] rounded-[12px] py-[15px] px-[18px] text-[0.95rem] text-[#222] hover:bg-[#d6eece] transition-all duration-200"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "12px",
+                  background: "#eaf6e4",
+                  borderRadius: "12px",
+                  padding: "15px 18px",
+                  fontSize: "0.95rem",
+                  color: "#222",
+                  cursor: "pointer",
+                  marginLeft: i % 2 === 0 ? "0px" : "80px",
+                  marginRight: i % 2 === 0 ? "80px" : "0px",
+                }}
               >
                 <LeafIcon />
-                <span className="text-left">{item.text}</span>
+                <span style={{ textAlign: "left" }}>{item.text}</span>
               </div>
             ))}
           </div>
 
           {/* Center Image */}
-          <div className="flex-shrink-0 w-[240px] flex items-center justify-center">
+          <div
+            style={{
+              flexShrink: 0,
+              width: "240px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             <img
               src={Center}
               alt="Illustration"
-              className="w-full h-auto block"
+              style={{ width: "100%", height: "auto", display: "block" }}
             />
           </div>
 
           {/* Right Column */}
-          <div className="flex-1 flex flex-col gap-[20px] min-w-0">
+          <div
+            style={{
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              gap: "20px",
+              minWidth: 0,
+            }}
+          >
             {rightCards.map((item, i) => (
               <div
                 key={i}
-                style={{ marginLeft: item.ml, marginRight: item.mr }}
-                className="flex items-center gap-[12px] bg-[#eaf6e4] rounded-[12px] py-[15px] px-[18px] text-[0.95rem] text-[#222] hover:bg-[#d6eece] transition-all duration-200"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "12px",
+                  background: "#eaf6e4",
+                  borderRadius: "12px",
+                  padding: "15px 18px",
+                  fontSize: "0.95rem",
+                  color: "#222",
+                  cursor: "pointer",
+                  marginLeft: i % 2 === 0 ? "0px" : "80px",
+                  marginRight: i % 2 === 0 ? "80px" : "0px",
+                }}
               >
                 <LeafIcon />
-                <span className="text-left">{item.text}</span>
+                <span style={{ textAlign: "left" }}>{item.text}</span>
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Mobile Layout */}
+        <div className="flex md:hidden flex-col gap-[20px] w-full">
+          {/* Left cards always visible */}
+          {leftCards.map((item, i) => (
+            <div
+              key={i}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "12px",
+                background: "#eaf6e4",
+                borderRadius: "12px",
+                padding: "14px 16px",
+                fontSize: "0.9rem",
+                color: "#222",
+                marginLeft: i % 2 === 0 ? "0px" : "60px",
+                marginRight: i % 2 === 0 ? "60px" : "0px",
+              }}
+            >
+              <LeafIcon />
+              <span style={{ textAlign: "left" }}>{item.text}</span>
+            </div>
+          ))}
+
+          {/* Right cards — only shown when showAll is true */}
+          {showAll &&
+            rightCards.map((item, i) => (
+              <div
+                key={i}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "12px",
+                  background: "#eaf6e4",
+                  borderRadius: "12px",
+                  padding: "14px 16px",
+                  fontSize: "0.9rem",
+                  color: "#222",
+                  marginLeft: i % 2 === 0 ? "0px" : "60px",
+                  marginRight: i % 2 === 0 ? "60px" : "0px",
+                }}
+              >
+                <LeafIcon />
+                <span style={{ textAlign: "left" }}>{item.text}</span>
+              </div>
+            ))}
+
+          {/* View all / View less toggle */}
+          <button
+            onClick={() => setShowAll(!showAll)}
+            style={{
+              display: "inline-block",
+              marginTop: "10px",
+              fontSize: "1rem",
+              color: "#222",
+              textDecoration: "underline",
+              textAlign: "center",
+              background: "transparent",
+              border: "none",
+              cursor: "pointer",
+              width: "100%",
+            }}
+          >
+            {showAll ? "View less" : "View all"}
+          </button>
         </div>
       </div>
       <div className="w-full py-[15px] md:py-0 px-[10px] md:px-0">
@@ -231,7 +342,7 @@ const Body = () => {
           </div>
         </div>
       </div>
-      <div className="w-full text-center p-[20px] my-20">
+      <div className="w-full text-center p-[20px] my-20 hidden">
         <h4 className="bg-[#F1FFB7] text-[#627324] border border-[#C8D0A9] rounded-full py-[8px] px-[15px] w-fit mx-auto text-[0.8rem] md:text-[1rem] mb-4">
           Testimonials
         </h4>
@@ -290,6 +401,7 @@ const Body = () => {
           </div>
         </div>
       </div>
+      <div className="w-full text-center p-[20px] my-20"></div>
       <div className="w-full">
         <Footer />
       </div>

@@ -18,23 +18,33 @@ const Footer = () => {
       className="text-white font-sans text-[0.9rem] leading-relaxed"
     >
       {/* Main Footer Content */}
-      <div className="px-[60px] py-[60px]">
-        <div className="flex flex-row justify-between items-start flex-wrap gap-[40px] max-w-[1400px] mx-auto">
+      <div className="px-[30px] md:px-[60px] py-[50px] md:py-[60px]">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-[40px] max-w-[1400px] mx-auto items-center text-center md:text-left">
           {/* Left Section - Logo + Address */}
-          <div className="max-w-[280px] w-full">
+          <div className="max-w-[280px] w-full flex flex-col items-center md:items-start relative">
+            {/* Background Watermark - hidden on mobile */}
+            <img
+              src={logo}
+              alt=""
+              aria-hidden="true"
+              className="hidden md:block absolute left-[60px] top-[30px] w-[420px] opacity-[0.06] pointer-events-none select-none"
+              style={{ filter: "brightness(10)" }}
+            />
+
+            {/* Actual Logo */}
             <img
               src={logo}
               alt="Polygon Logo"
-              className="w-[160px] mb-[20px] block"
+              className="w-[140px] md:w-[160px] mb-[20px] block relative z-10"
             />
-            <p className="my-[5px] text-[#A9C6D3] text-[0.85rem]">
+            <p className="my-[5px] text-[#A9C6D3] text-[0.85rem] relative z-10">
               No. 14, Sir Baron Jayathilake Mawatha,
               <br /> Colombo 01, Western 00100, LK
             </p>
-            <p className="my-[8px] text-[#A9C6D3]">
+            <p className="my-[8px] text-[#A9C6D3] relative z-10">
               <a
                 href="mailto:info@polygon.lk"
-                className=" no-underline hover:underline text-[0.85rem]"
+                className="no-underline hover:underline text-[0.85rem]"
               >
                 info@polygon.lk
               </a>
@@ -50,7 +60,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/"
-                  className="text-[#A9C6D3] no-underline transition-colors duration-300 hover:text-[#00B2FF] text-[0.9rem]"
+                  className="text-[#A9C6D3] no-underline hover:text-[#00B2FF] text-[0.9rem]"
                 >
                   Home
                 </Link>
@@ -58,7 +68,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/contact"
-                  className="text-[#A9C6D3] no-underline transition-colors duration-300 hover:text-[#00B2FF] text-[0.9rem]"
+                  className="text-[#A9C6D3] no-underline hover:text-[#00B2FF] text-[0.9rem]"
                 >
                   Contact Us
                 </Link>
@@ -66,7 +76,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/newsletter"
-                  className="text-[#A9C6D3] no-underline transition-colors duration-300 hover:text-[#00B2FF] text-[0.9rem]"
+                  className="text-[#A9C6D3] no-underline hover:text-[#00B2FF] text-[0.9rem]"
                 >
                   Newsletter
                 </Link>
@@ -83,23 +93,23 @@ const Footer = () => {
               <li>
                 <Link
                   to="/InvestmentFarm"
-                  className="text-[#A9C6D3] no-underline transition-colors duration-300 hover:text-[#00B2FF] text-[0.9rem]"
+                  className="text-[#A9C6D3] no-underline hover:text-[#00B2FF] text-[0.9rem]"
                 >
-                  InvestorFarm
+                  GoVi Capital
                 </Link>
               </li>
               <li>
                 <Link
                   to="/PlantCare"
-                  className="text-[#A9C6D3] no-underline transition-colors duration-300 hover:text-[#00B2FF] text-[0.9rem]"
+                  className="text-[#A9C6D3] no-underline hover:text-[#00B2FF] text-[0.9rem]"
                 >
-                  PlantCare
+                  GoViCare
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/GoViMart"
-                  className="text-[#A9C6D3] no-underline transition-colors duration-300 hover:text-[#00B2FF] text-[0.9rem]"
+                  to="/MarketPlace"
+                  className="text-[#A9C6D3] no-underline hover:text-[#00B2FF] text-[0.9rem]"
                 >
                   GoViMart
                 </Link>
@@ -108,70 +118,70 @@ const Footer = () => {
           </div>
 
           {/* Follow */}
-          <div className="w-full md:w-auto">
+          <div className="w-full md:w-auto flex flex-col items-center md:items-start">
             <h4 className="mb-[18px] text-[0.85rem] font-semibold tracking-widest text-white">
               FOLLOW
             </h4>
-            <div className="flex gap-[16px] flex-wrap">
+            <div className="flex gap-[16px] flex-wrap justify-center md:justify-start">
               <a
-                href="https://www.linkedin.com/company/polygon"
+                href="/"
                 target="_blank"
                 rel="noreferrer"
-                className="text-[#00B2FF] text-[1.3rem] transition-all duration-300 hover:text-white hover:scale-125 inline-block"
+                className="text-[#00B2FF] text-[1.6rem] md:text-[1.3rem] hover:text-white hover:scale-125 inline-block transition-all duration-300"
                 aria-label="LinkedIn"
               >
                 <FaLinkedin />
               </a>
               <a
-                href="https://www.facebook.com/polygon"
+                href="/"
                 target="_blank"
                 rel="noreferrer"
-                className="text-[#00B2FF] text-[1.3rem] transition-all duration-300 hover:text-white hover:scale-125 inline-block"
+                className="text-[#00B2FF] text-[1.6rem] md:text-[1.3rem] hover:text-white hover:scale-125 inline-block transition-all duration-300"
                 aria-label="Facebook"
               >
                 <FaFacebook />
               </a>
               <a
-                href="https://twitter.com/polygon"
+                href="/"
                 target="_blank"
                 rel="noreferrer"
-                className="text-[#00B2FF] text-[1.3rem] transition-all duration-300 hover:text-white hover:scale-125 inline-block"
+                className="text-[#00B2FF] text-[1.6rem] md:text-[1.3rem] hover:text-white hover:scale-125 inline-block transition-all duration-300"
                 aria-label="Twitter"
               >
                 <FaTwitter />
               </a>
               <a
-                href="https://www.youtube.com/@Polygon"
+                href="/"
                 target="_blank"
                 rel="noreferrer"
-                className="text-[#00B2FF] text-[1.3rem] transition-all duration-300 hover:text-white hover:scale-125 inline-block"
+                className="text-[#00B2FF] text-[1.6rem] md:text-[1.3rem] hover:text-white hover:scale-125 inline-block transition-all duration-300"
                 aria-label="YouTube"
               >
                 <FaYoutube />
               </a>
               <a
-                href="https://www.instagram.com/polygon"
+                href="/"
                 target="_blank"
                 rel="noreferrer"
-                className="text-[#00B2FF] text-[1.3rem] transition-all duration-300 hover:text-white hover:scale-125 inline-block"
+                className="text-[#00B2FF] text-[1.6rem] md:text-[1.3rem] hover:text-white hover:scale-125 inline-block transition-all duration-300"
                 aria-label="Instagram"
               >
                 <FaInstagram />
               </a>
               <a
-                href="https://play.google.com/store"
+                href="/"
                 target="_blank"
                 rel="noreferrer"
-                className="text-[#00B2FF] text-[1.3rem] transition-all duration-300 hover:text-white hover:scale-125 inline-block"
+                className="text-[#00B2FF] text-[1.6rem] md:text-[1.3rem] hover:text-white hover:scale-125 inline-block transition-all duration-300"
                 aria-label="Google Play"
               >
                 <FaGooglePlay />
               </a>
               <a
-                href="https://apps.apple.com"
+                href="/"
                 target="_blank"
                 rel="noreferrer"
-                className="text-[#00B2FF] text-[1.3rem] transition-all duration-300 hover:text-white hover:scale-125 inline-block"
+                className="text-[#00B2FF] text-[1.6rem] md:text-[1.3rem] hover:text-white hover:scale-125 inline-block transition-all duration-300"
                 aria-label="App Store"
               >
                 <FaAppStore />
@@ -181,27 +191,27 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Bar - darker strip */}
+      {/* Bottom Bar */}
       <div
         style={{ backgroundColor: "#091D25" }}
-        className="px-[60px] py-[20px]"
+        className="px-[30px] md:px-[60px] py-[20px]"
       >
-        <div className="flex flex-col md:flex-row justify-between items-center max-w-[1400px] mx-auto gap-[10px]">
-          <div className="flex gap-[40px]">
+        <div className="flex flex-col items-center md:flex-row md:justify-between max-w-[1400px] mx-auto gap-[10px] text-center md:text-left">
+          <div className="flex flex-col md:flex-row gap-[16px] md:gap-[40px]">
             <Link
               to="/Terms"
-              className="text-gray-300 no-underline text-[0.8rem] tracking-widest transition-colors duration-300 hover:text-[#00B2FF]"
+              className="text-gray-300 no-underline text-[0.8rem] tracking-widest hover:text-[#00B2FF]"
             >
               TERMS & CONDITIONS
             </Link>
             <Link
               to="/Privacy"
-              className="text-gray-300 no-underline text-[0.8rem] tracking-widest transition-colors duration-300 hover:text-[#00B2FF]"
+              className="text-gray-300 no-underline text-[0.8rem] tracking-widest hover:text-[#00B2FF]"
             >
               PRIVACY POLICY
             </Link>
           </div>
-          <div className="text-right">
+          <div className="text-center md:text-right">
             <p className="text-[0.8rem] text-gray-400 m-0">
               Copyright &copy; 2024 Polygon Agro Holdings
             </p>
