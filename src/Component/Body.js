@@ -136,7 +136,7 @@ const Body = () => {
             />
           ))}
         </div>
-        <div className="w-full flex justify-center mt-[20px]">
+        <div className="w-full hidden md:flex justify-center mt-[20px]">
           <img
             src={Solution}
             alt="Solution"
