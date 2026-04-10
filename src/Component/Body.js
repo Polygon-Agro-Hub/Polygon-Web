@@ -107,8 +107,8 @@ const Body = () => {
           </button>
         </div>
       </div>
-      <div className="flex flex-col items-center text-center py-[20px] md:py-[30px] px-[10px] md:px-[20px] w-full">
-        <h4 className="bg-[#F1FFB7] text-[#627324] border border-[#C8D0A9] rounded-full py-[6px] px-[22px] text-[14px] self-center mb-4">
+      <div className="flex flex-col items-center text-center py-[20px] md:py-[30px] px-[10px] md:px-32 w-full">
+        <h4 className="bg-[#F1FFB7] text-[#627324] border border-[#C8D0A9] rounded-full py-[6px] px-[22px] text-[14px] self-center mb-20">
           Polygon Agro Eco System
         </h4>
         <img
