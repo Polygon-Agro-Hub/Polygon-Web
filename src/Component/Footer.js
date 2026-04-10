@@ -21,17 +21,27 @@ const Footer = () => {
       <div className="px-[30px] md:px-[60px] py-[50px] md:py-[60px]">
         <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-[40px] max-w-[1400px] mx-auto items-center text-center md:text-left">
           {/* Left Section - Logo + Address */}
-          <div className="max-w-[280px] w-full flex flex-col items-center md:items-start">
+          <div className="max-w-[280px] w-full flex flex-col items-center md:items-start relative">
+            {/* Background Watermark - hidden on mobile */}
+            <img
+              src={logo}
+              alt=""
+              aria-hidden="true"
+              className="hidden md:block absolute left-[60px] top-[30px] w-[420px] opacity-[0.06] pointer-events-none select-none"
+              style={{ filter: "brightness(10)" }}
+            />
+
+            {/* Actual Logo */}
             <img
               src={logo}
               alt="Polygon Logo"
-              className="w-[140px] md:w-[160px] mb-[20px] block"
+              className="w-[140px] md:w-[160px] mb-[20px] block relative z-10"
             />
-            <p className="my-[5px] text-[#A9C6D3] text-[0.85rem]">
+            <p className="my-[5px] text-[#A9C6D3] text-[0.85rem] relative z-10">
               No. 14, Sir Baron Jayathilake Mawatha,
               <br /> Colombo 01, Western 00100, LK
             </p>
-            <p className="my-[8px] text-[#A9C6D3]">
+            <p className="my-[8px] text-[#A9C6D3] relative z-10">
               <a
                 href="mailto:info@polygon.lk"
                 className="no-underline hover:underline text-[0.85rem]"
