@@ -1,12 +1,12 @@
 import React from "react";
 import { FaApple } from "react-icons/fa";
 import farmerImage from "../images/FarmerP.png"; // Replace with actual image path
-import appImage from "../images/APP_PC.png"; // Single app screen image
+import appImage from "../images/newImg/Intro.png"; // Single app screen image
 import cropIcon from "../images/Access.png";
 import weatherIcon from "../images/Weather.png";
 import supportIcon from "../images/Finance.png";
 import marketplaceIcon from "../images/MarAccess.png";
-import greenMobileImg from "../images/GreenMobile.png";
+import greenMobileImg from "../images/newImg/sideImgMobileapp.png";
 
 const PlantCareBody = () => {
   return (
@@ -38,7 +38,7 @@ const PlantCareBody = () => {
           <img
             src={appImage}
             alt="App Screen"
-            className="w-full max-w-[380px] h-auto"
+            className="w-full max-w-[500px] h-auto"
           />
         </div>
       </div>
@@ -136,7 +136,7 @@ const PlantCareBody = () => {
         </div>
       </div>
       <div className="p-[20px] md:p-[60px] flex justify-center">
-        <div className="bg-[#1F4E3D] w-full max-w-[1400px] rounded-[30px] p-[40px] md:p-[60px] relative overflow-hidden flex flex-col md:flex-row items-center justify-between text-white">
+        <div className="bg-[#182D36] w-full max-w-[1400px] rounded-[30px] p-[40px] md:p-[60px] relative overflow-hidden flex flex-col md:flex-row items-center justify-between text-white">
           {/* Text and Buttons Content */}
           <div className="z-10 text-center md:text-left md:max-w-[90%]">
             <h2 className="text-[2rem] md:text-[3rem] font-serif mb-[20px]">
@@ -152,20 +152,15 @@ const PlantCareBody = () => {
               {/* Google Play Button */}
               <button className="bg-white text-black px-6 py-2 rounded-full flex items-center gap-3 hover:bg-gray-100 transition-all shadow-md">
                 {/* Google Play Icon (SVG for better accuracy) */}
-                <svg viewBox="0 0 512 512" width="24" height="24">
-                  <path fill="#4285F4" d="M12 52.15v407.7l328.7-203.9z" />
-                  <path
-                    fill="#34A853"
-                    d="M406.8 242.3L340.7 201 12 404.7v10.3c0 6.1 5 11 11 11 2.5 0 5-.8 7.1-2.4l376.7-213.8c5.1-2.9 8.2-8.3 8.2-14.2 0-1.2-.1-2.3-.3-3.3z"
-                  />
-                  <path
-                    fill="#FBBC04"
-                    d="M406.8 269.7l-66.1 41.3-328.7-206.3v10.3l328.7 206.3z"
-                  />
-                  <path
-                    fill="#EA4335"
-                    d="M406.8 242.3c-.3-1-.8-1.9-1.4-2.7L28.7 25.8C26.6 24.2 24.1 23.4 21.6 23.4c-6 0-11 4.9-11 11v10.3l330.1 206.3z"
-                  />
+                <svg
+                  viewBox="0 0 512 512"
+                  className="w-6 h-6 text-black"
+                  fill="currentColor"
+                >
+                  <path d="M12 52.15v407.7l328.7-203.9z" />
+                  <path d="M406.8 242.3L340.7 201 12 404.7v10.3c0 6.1 5 11 11 11 2.5 0 5-.8 7.1-2.4l376.7-213.8c5.1-2.9 8.2-8.3 8.2-14.2 0-1.2-.1-2.3-.3-3.3z" />
+                  <path d="M406.8 269.7l-66.1 41.3-328.7-206.3v10.3l328.7 206.3z" />
+                  <path d="M406.8 242.3c-.3-1-.8-1.9-1.4-2.7L28.7 25.8C26.6 24.2 24.1 23.4 21.6 23.4c-6 0-11 4.9-11 11v10.3l330.1 206.3z" />
                 </svg>
                 <div className="flex flex-col items-start leading-tight">
                   <span className="text-[12px] font-semibold mb-1">
@@ -181,10 +176,12 @@ const PlantCareBody = () => {
               <button className="bg-white text-black px-6 py-2 rounded-full flex items-center gap-3 hover:bg-gray-100 transition-all shadow-md">
                 <FaApple size={30} />
                 <div className="flex flex-col items-start leading-tight">
-                   <span className="text-[12px] font-semibold mb-1">
+                  <span className="text-[12px] font-semibold mb-1">
                     Download on the
                   </span>
-                  <span className="text-[18px] font-semibold -mt-1">App Store</span>
+                  <span className="text-[18px] font-semibold -mt-1">
+                    App Store
+                  </span>
                 </div>
               </button>
             </div>

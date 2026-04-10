@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { IoIosArrowDown } from "react-icons/io";
 
 const FAQ = () => {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(null);
   const navigate = useNavigate();
 
   const toggleDropdown = (index) => {
@@ -83,11 +83,11 @@ const FAQ = () => {
                       onClick={() => toggleDropdown(index)}
                       aria-expanded={isOpen}
                     >
-                      <span className="text-[#292929] font-semibold">
+                      <span className="text-[#1E1E1E] font-semibold">
                         {faq.question}
                       </span>
                       <span
-                        className="text-[#292929] text-[1.3rem] leading-none transition-transform"
+                        className="text-[#414141] text-[1.3rem] leading-none transition-transform"
                         style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
                         aria-hidden="true"
                       >
@@ -96,7 +96,7 @@ const FAQ = () => {
                     </button>
 
                     {isOpen && (
-                      <div className="mt-[14px] bg-[#DFF2E3] rounded-[16px] p-[18px] sm:p-[22px] text-[#3B3B3B] leading-[1.9]">
+                      <div className="mt-[14px] bg-[#F5C5DA] rounded-[16px] p-[18px] sm:p-[22px] text-[#414141] leading-[1.9]">
                         {faq.answer}
                       </div>
                     )}

@@ -1,6 +1,6 @@
 import React from "react";
-import marketImage from "../images/MPLady.png"; // Image path for laptop illustration
-import tabletImage from "../images/MPTab.png"; // Image path for tablet illustration
+import marketImage from "../images/newImg/GoViMartLapImg.png"; // Image path for laptop illustration
+import tabletImage from "../images/newImg/GoViMartTab.png"; // Image path for tablet illustration
 import icon1 from "../images/Wholesale.png"; // Icon for wholesale
 import icon2 from "../images/Bundles.png"; // Icon for bundles
 import icon3 from "../images/Delivery.png"; // Icon for delivery
@@ -19,7 +19,9 @@ const MarketPlaceBody = () => {
       {/* Section 1: Intro Section */}
       <div className="flex flex-col md:flex-row items-center justify-center flex-wrap gap-[20px] p-[40px] px-[20px] bg-white text-center md:text-left w-full">
         <div className="flex-1 w-full md:max-w-[50%] p-[50px]">
-          <h1 className="text-[#00957D] text-[2rem] mb-[10px] font-semibold">GoviMart</h1>
+          <h1 className="text-[#00957D] text-[2rem] mb-[10px] font-semibold">
+            GoviMart
+          </h1>
           <h2 className="text-[1.5rem] mb-[15px] text-[#333]">
             Your Online GoViMart for Quality Produce
           </h2>
@@ -40,22 +42,22 @@ const MarketPlaceBody = () => {
             Sign up Today!
           </button>
         </div>
-        <div className="flex-1 w-full md:max-w-[50%] flex justify-center">
+        <div className="w-full md:w-1/2 flex justify-center">
           <img
             src={marketImage}
             alt="Market Place Laptop"
-            className="w-full max-w-[800px]"
+            className="w-full max-w-[800px] h-auto object-contain"
           />
         </div>
       </div>
 
       {/* Section 2: Benefits Section */}
       <div className="flex flex-col md:flex-row items-center justify-center gap-[30px] p-[40px] px-[20px] text-center md:text-left w-full">
-        <div className="flex-1 hidden md:flex w-fulljustify-center">
+        <div className="flex-1 hidden md:flex w-full justify-center">
           <img
             src={tabletImage}
             alt="Tablet View"
-            className="w-full max-w-[250px] min-[480px]:max-w-[400px] h-auto object-contain"
+            className="w-full max-w-[250px] min-[480px]:max-w-[530px] h-auto object-contain"
           />
         </div>
         <div className="flex-[2] w-full">

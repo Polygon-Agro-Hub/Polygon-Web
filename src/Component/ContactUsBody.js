@@ -6,7 +6,7 @@ const ContactUs = () => {
   return (
     <div
       className="min-h-screen w-full flex items-start justify-center px-[20px] sm:px-[40px] lg:px-[80px] py-[90px]"
-      style={{ backgroundColor: "#A8DBAD" }}
+      style={{ backgroundColor: "#F4006433" }}
     >
       <div className="w-full max-w-[1400px] grid grid-cols-1 lg:grid-cols-[1fr_520px] gap-y-[40px] lg:gap-y-[50px] lg:gap-x-[80px] items-start">
         {/* Left side */}
@@ -21,22 +21,22 @@ const ContactUs = () => {
 
           <div className="flex flex-col gap-[16px] items-start lg:items-start max-w-[520px] mx-auto lg:mx-0">
             <div className="flex items-center gap-[16px] w-full">
-              <div className="w-[44px] h-[44px] sm:w-[48px] sm:h-[48px] rounded-full flex items-center justify-center bg-[rgba(41,41,41,0.12)] shrink-0">
-                <FiMail className="text-[#292929]" size={18} />
+              <div className="w-[44px] h-[44px] sm:w-[48px] sm:h-[48px] rounded-full flex items-center justify-center bg-[rgb(244,0,100)] shrink-0">
+                <FiMail className="text-[#ffffff]" size={18} />
               </div>
               <span className="text-[#292929] font-semibold break-words text-left">info@polygon.lk</span>
             </div>
 
             <div className="flex items-center gap-[16px] w-full">
-              <div className="w-[44px] h-[44px] sm:w-[48px] sm:h-[48px] rounded-full flex items-center justify-center bg-[rgba(41,41,41,0.12)] shrink-0">
-                <FiPhone className="text-[#292929]" size={18} />
+              <div className="w-[44px] h-[44px] sm:w-[48px] sm:h-[48px] rounded-full flex items-center justify-center bg-[rgb(244,0,100)] shrink-0">
+                <FiPhone className="text-[#ffffff]" size={18} />
               </div>
               <span className="text-[#292929] font-semibold break-words text-left">+94 770111999</span>
             </div>
 
             <div className="flex items-start gap-[16px] w-full">
-              <div className="w-[44px] h-[44px] sm:w-[48px] sm:h-[48px] rounded-full flex items-center justify-center bg-[rgba(41,41,41,0.12)] shrink-0 mt-[2px]">
-                <FiMapPin className="text-[#292929]" size={18} />
+              <div className="w-[44px] h-[44px] sm:w-[48px] sm:h-[48px] rounded-full flex items-center justify-center bg-[rgb(244,0,100)] shrink-0 mt-[2px]">
+                <FiMapPin className="text-[#ffffff]" size={18} />
               </div>
               <span className="text-[#292929] font-semibold leading-[1.6] break-words text-left">
                 No. 14, Sir Baron Jayathilake Mawatha, Colombo 01, Western 00100,
