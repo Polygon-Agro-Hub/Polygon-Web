@@ -98,7 +98,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/GoViMart"
+                  to="/MarketPlace"
                   className="text-[#A9C6D3] no-underline hover:text-[#00B2FF] text-[0.9rem]"
                 >
                   GoViMart
