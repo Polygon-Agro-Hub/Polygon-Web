@@ -61,9 +61,9 @@ const Body = () => {
       <div className="w-full">
         <HeroSection />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-[60px] p-[60px_80px] bg-white items-center">
-        {/* Left: Image with gray decorative card */}
-        <div className="relative pb-[30px] pr-[30px] order-last md:order-first">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-[40px] md:gap-[60px] px-6 py-10 md:p-[60px_80px] bg-white items-center">
+        {/* Left: Image — hidden on mobile, visible on desktop */}
+        <div className="relative pb-[30px] pr-[30px] order-last md:order-first hidden md:block">
           <img
             src={About}
             alt="about"
@@ -72,23 +72,20 @@ const Body = () => {
         </div>
 
         {/* Right: Text */}
-        <div className="flex flex-col gap-[22px] items-start order-first md:order-last">
-          <span className="bg-[#F1FFB7] text-[#627324] border border-[#C8D0A9] rounded-full py-[6px] px-[22px] text-[14px] self-center">
+        <div className="flex flex-col gap-[22px] items-center md:items-start order-first md:order-last text-center md:text-left">
+          <span className="bg-[#F1FFB7] text-[#627324] border border-[#C8D0A9] rounded-full py-[6px] px-[22px] text-[14px]">
             About Us
           </span>
 
-          <h2 className="text-[2rem] font-semibold leading-snug m-0">
+          <h2 className="text-[1.6rem] md:text-[2rem] font-semibold leading-snug m-0">
             Changing the landscape of agriculture
           </h2>
 
-          <p className="text-[1rem] leading-loose m-0 text-gray-500">
-            Polygon Agro Holdings is a Sri Lankan Agri-FinTech
-            <br />
-            Startup Company helping farmers and investors to
-            <br />
-            maximize their wealth by optimizing the agriculture value
-            <br />
-            chain by creating an investment-to-shelf digital platform
+          <p className="text-[0.95rem] md:text-[1rem] leading-loose m-0 text-gray-500">
+            Polygon Agro Holdings is a Sri Lankan Agri-FinTech Startup Company
+            helping farmers and investors to maximize their wealth by optimizing
+            the agriculture value chain by creating an investment-to-shelf
+            digital platform
           </p>
 
           <button className="flex items-center gap-[14px] bg-transparent border-none cursor-pointer p-0 mt-[6px]">
