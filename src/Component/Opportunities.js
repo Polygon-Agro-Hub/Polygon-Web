@@ -12,34 +12,29 @@ import PaddyVector from "../images/paddyvector.png";
 const Opportunities = () => {
   return (
     <div className="relative py-[60px] px-[20px] overflow-hidden mt-5">
-      {/* Paddy Vector - Top Left */}
+      
+      {/* Paddy Vector - hidden on mobile, visible on desktop */}
       <img
         src={PaddyVector}
         alt=""
-        className="absolute w-full pt-9 h-80 bg-[#e8f5e9] bg-cover bg-bottom bg-no-repeat"
+        className="hidden md:block absolute w-full pt-9 h-80 bg-[#e8f5e9] bg-cover bg-bottom bg-no-repeat"
       />
 
       {/* Cards */}
       <div>
-        <div className="flex flex-wrap gap-[20px] justify-center relative z-10 mt-[100px]">
+        <div className="flex flex-wrap gap-[20px] justify-center relative z-10 mt-0 md:mt-[100px]">
           {[
             {
               image: image1,
               icon: icon1,
               title: "Stable Great Price",
-              points: [
-                "Increases Farmer Income",
-                "Increases Retailer Net Profit",
-              ],
+              points: ["Increases Farmer Income", "Increases Retailer Net Profit"],
             },
             {
               image: image2,
               icon: icon2,
               title: "Planned Cultivation",
-              points: [
-                "Demand & supply management",
-                "Agro ecological based crop recommendation",
-              ],
+              points: ["Demand & supply management", "Agro ecological based crop recommendation"],
             },
             {
               image: image3,
@@ -65,7 +60,7 @@ const Opportunities = () => {
                   alt={card.title}
                   className="w-full h-full object-cover rounded-t-[16px]"
                 />
-                {/* Icon circle overlapping bottom of image */}
+                {/* Icon circle */}
                 <div className="absolute -bottom-[30px] left-1/2 -translate-x-1/2 bg-white rounded-full w-[60px] h-[60px] flex justify-center items-center shadow-md z-10">
                   <img src={card.icon} alt="icon" className="w-full h-full" />
                 </div>
@@ -78,13 +73,8 @@ const Opportunities = () => {
                 </h3>
                 <ul className="list-none p-0 m-0 text-left">
                   {card.points.map((point, j) => (
-                    <li
-                      key={j}
-                      className="text-[0.9rem] text-[#555] mb-[10px] flex items-start gap-[8px]"
-                    >
-                      <span className="text-[#4a7c2f] font-bold mt-[1px]">
-                        ✓
-                      </span>
+                    <li key={j} className="text-[0.9rem] text-[#555] mb-[10px] flex items-start gap-[8px]">
+                      <span className="text-[#4a7c2f] font-bold mt-[1px]">✓</span>
                       <span>{point}</span>
                     </li>
                   ))}
