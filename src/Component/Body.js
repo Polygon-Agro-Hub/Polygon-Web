@@ -64,7 +64,6 @@ const Body = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-[60px] p-[60px_80px] bg-white items-center">
         {/* Left: Image with gray decorative card */}
         <div className="relative pb-[30px] pr-[30px] order-last md:order-first">
-          <div className="absolute bottom-0 right-0 w-[82%] h-[82%] bg-[#e8e8e8] rounded-[20px] z-0"></div>
           <img
             src={About}
             alt="about"
