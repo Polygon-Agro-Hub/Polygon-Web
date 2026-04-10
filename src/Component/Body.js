@@ -58,7 +58,7 @@ const Body = () => {
 
   return (
     <div className="w-full overflow-x-hidden max-w-[100vw]">
-      <div className="items-center w-full">
+      <div className="w-full">
         <HeroSection />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-[60px] p-[60px_80px] bg-white items-center">
