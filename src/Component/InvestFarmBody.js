@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import investmentImage from "../images/blueSitMan.png"; // Replace with your image path
 import { useNavigate } from "react-router-dom";
 import investorImage from "../images/investor.png";
@@ -11,12 +11,134 @@ import { IoIosArrowDown } from "react-icons/io";
 const InvestFarmBody = () => {
   const navigate = useNavigate();
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [alert, setAlert] = useState({ show: false, type: "success", message: "" });
+
+  const showAlert = (type, message) => {
+    setAlert({ show: true, type, message });
+    setTimeout(() => setAlert((prev) => ({ ...prev, show: false })), 5000);
+  };
+
+  const closeAlert = () => {
+    setAlert((prev) => ({ ...prev, show: false }));
+  };
+
+  const namePattern = /^[A-Za-z ]+$/;
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  const normalizePhone = (value) => (value || "").replace(/\D/g, "");
+
+  const onNameInput = (e) => {
+    e.target.value = (e.target.value || "").replace(/[^A-Za-z ]/g, "");
+  };
+
+  const onPhoneInput = (e) => {
+    e.target.value = normalizePhone(e.target.value);
+  };
+
+  const handleInquireSubmit = async (e) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+
+    const fullName = form.fullName?.value?.trim() || "";
+    const company = form.company?.value?.trim() || "";
+    const email = form.email?.value?.trim() || "";
+    const phone = form.phone?.value?.trim() || "";
+    const address = form.address?.value?.trim() || "";
+    const message = form.message?.value?.trim() || "";
+
+    // validation
+    if (!fullName || !namePattern.test(fullName)) {
+      showAlert("error", "Please enter a valid name (letters only).");
+      return;
+    }
+
+    if (!emailPattern.test(email)) {
+      showAlert("error", "Please enter a valid email address.");
+      return;
+    }
+
+    const phoneDigits = normalizePhone(phone);
+    if (phoneDigits && (phoneDigits.length < 9 || phoneDigits.length > 15)) {
+      showAlert("error", "Please enter a valid phone number.");
+      return;
+    }
+
+    if (!message) {
+      showAlert("error", "Please enter your message.");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    const [firstName, ...rest] = fullName.split(/\s+/).filter(Boolean);
+    const lastName = rest.join(" ") || "-";
+
+    const mergedMessage = address ? `${message}\n\nAddress: ${address}` : message;
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          phone: phoneDigits,
+          company,
+          message: mergedMessage,
+        }),
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (res.ok && data?.success) {
+        showAlert("success", "Message sent successfully! We will get back to you soon.");
+        form.reset();
+      } else {
+        showAlert("error", data?.error || "Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error(error);
+      showAlert("error", "An error occurred. Please check your connection and try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const handleSignUp = () => {
     navigate("/signup"); // Directs to the Sign Up page
   };
 
   return (
     <div>
+      {/* Alert */}
+      {alert.show && (
+        <div className="fixed top-4 right-4 z-50">
+          <div
+            className={`relative flex items-start gap-3 p-4 rounded-xl shadow-xl min-w-[280px] max-w-[360px] border ${
+              alert.type === "success"
+                ? "bg-green-50 border-green-200 text-green-900"
+                : "bg-red-50 border-red-200 text-red-900"
+            }`}
+          >
+            <div className="flex-1">
+              <p className="font-semibold mb-1">
+                {alert.type === "success" ? "Success" : "Error"}
+              </p>
+              <p className="text-sm leading-relaxed">{alert.message}</p>
+            </div>
+            <button
+              type="button"
+              onClick={closeAlert}
+              className="text-sm underline whitespace-nowrap"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
       <div className="flex flex-col lg:flex-row flex-wrap items-center justify-center w-full lg:min-h-screen p-[10px] lg:p-[20px] bg-[#f9f9f9]">
         {/* Left Section */}
         <div className="flex-1 max-w-full lg:max-w-[50%] p-[20px] text-center lg:text-left">
@@ -162,11 +284,16 @@ const InvestFarmBody = () => {
               You can reach us at anytime
             </p>
 
-            <form className="flex flex-col gap-[20px]">
+            <form className="flex flex-col gap-[20px]" onSubmit={handleInquireSubmit}>
               {/* Full Name */}
               <input
+                name="fullName"
                 type="text"
                 placeholder="Your Full Name"
+                required
+                pattern="[A-Za-z ]+"
+                title="Letters and spaces only"
+                onInput={onNameInput}
                 className="w-full px-[20px] py-[12px] border-[1px] rounded-full focus:outline-none focus:border-[#007DFE] transition-all"
                 style={{
                   borderColor: "#C7C7C7",
@@ -176,6 +303,7 @@ const InvestFarmBody = () => {
 
               {/* Company Name */}
               <input
+                name="company"
                 type="text"
                 placeholder="Your Company Name"
                 className="w-full px-[20px] py-[12px] border-[1px] rounded-full focus:outline-none focus:border-[#007DFE] transition-all"
@@ -187,8 +315,11 @@ const InvestFarmBody = () => {
 
               {/* Email */}
               <input
+                name="email"
                 type="email"
                 placeholder="Your Email"
+                required
+                inputMode="email"
                 className="w-full px-[20px] py-[12px] border-[1px] rounded-full focus:outline-none focus:border-[#007DFE] transition-all"
                 style={{
                   borderColor: "#C7C7C7",
@@ -212,8 +343,13 @@ const InvestFarmBody = () => {
                 </div>
                 <div className="w-[1px] h-[24px] bg-[#C7C7C7]"></div>
                 <input
+                  name="phone"
                   type="tel"
                   placeholder="Phone Number"
+                  inputMode="numeric"
+                  onInput={onPhoneInput}
+                  minLength={9}
+                  maxLength={15}
                   className="flex-1 focus:outline-none bg-transparent"
                   style={{
                     color: "#2F2F2F",
@@ -224,6 +360,7 @@ const InvestFarmBody = () => {
 
               {/* Address (Optional) */}
               <input
+                name="address"
                 type="text"
                 placeholder="Your Address (Optional)"
                 className="w-full px-[20px] py-[12px] border-[1px] rounded-full focus:outline-none focus:border-[#007DFE] transition-all"
@@ -236,27 +373,29 @@ const InvestFarmBody = () => {
               {/* Message */}
               <div className="relative">
                 <textarea
+                  name="message"
                   placeholder="How can we help?"
                   rows="5"
-                  maxLength="100"
+                  required
+                  maxLength="1000"
                   className="w-full px-[20px] py-[12px] border-[1px] rounded-[20px] focus:outline-none focus:border-[#007DFE] transition-all resize-none"
                   style={{
                     borderColor: "#C7C7C7",
                     color: "#2F2F2F",
                   }}
                 ></textarea>
-                <span className="absolute bottom-[20px] right-[20px] text-[#969696] text-[0.9rem]">
-                  0/100
-                </span>
               </div>
 
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full py-[12px] rounded-full text-white font-inter font-[500] text-[1.1rem] transition-all hover:opacity-90"
+                disabled={isSubmitting}
+                className={`w-full py-[12px] rounded-full text-white font-inter font-[500] text-[1.1rem] transition-all hover:opacity-90 ${
+                  isSubmitting ? "opacity-60 cursor-not-allowed" : ""
+                }`}
                 style={{ backgroundColor: "#2F2F2F" }}
               >
-                Submit
+                {isSubmitting ? "Sending..." : "Submit"}
               </button>
 
               {/* Terms and Privacy */}

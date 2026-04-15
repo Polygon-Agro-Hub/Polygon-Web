@@ -1,13 +1,134 @@
-import React from "react";
+import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
 
 const ContactUs = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [alert, setAlert] = useState({ show: false, type: "success", message: "" });
+
+  const showAlert = (type, message) => {
+    setAlert({ show: true, type, message });
+    setTimeout(() => setAlert((prev) => ({ ...prev, show: false })), 5000);
+  };
+
+  const closeAlert = () => {
+    setAlert((prev) => ({ ...prev, show: false }));
+  };
+
+  const namePattern = /^[A-Za-z ]+$/;
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  const normalizePhone = (value) => (value || "").replace(/\D/g, "");
+
+  const onNameInput = (e) => {
+    // allow only letters and spaces
+    e.target.value = (e.target.value || "").replace(/[^A-Za-z ]/g, "");
+  };
+
+  const onPhoneInput = (e) => {
+    // keep digits only
+    e.target.value = normalizePhone(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+
+    const fullName = form.fullName?.value?.trim() || "";
+    const email = form.email?.value?.trim() || "";
+    const phone = form.phone?.value?.trim() || "";
+    const company = form.company?.value?.trim() || "";
+    const message = form.message?.value?.trim() || "";
+
+    // validation
+    if (!fullName || !namePattern.test(fullName)) {
+      showAlert("error", "Please enter a valid name (letters only).");
+      return;
+    }
+
+    if (!emailPattern.test(email)) {
+      showAlert("error", "Please enter a valid email address.");
+      return;
+    }
+
+    const phoneDigits = normalizePhone(phone);
+    if (phoneDigits && (phoneDigits.length < 9 || phoneDigits.length > 15)) {
+      showAlert("error", "Please enter a valid phone number.");
+      return;
+    }
+
+    if (!message) {
+      showAlert("error", "Please enter your message.");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    const [firstName, ...rest] = fullName.split(/\s+/).filter(Boolean);
+    const lastName = rest.join(" ") || "-";
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          phone: phoneDigits,
+          company,
+          message,
+        }),
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (res.ok && data?.success) {
+        showAlert("success", "Message sent successfully! We will get back to you soon.");
+        form.reset();
+      } else {
+        showAlert("error", data?.error || "Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error(error);
+      showAlert("error", "An error occurred. Please check your connection and try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div
       className="min-h-screen w-full flex items-start justify-center px-[20px] sm:px-[40px] lg:px-[80px] py-[90px]"
       style={{ backgroundColor: "#F4006433" }}
     >
+      {/* Alert */}
+      {alert.show && (
+        <div className="fixed bottom-6 right-4 z-50">
+          <div
+            className={`relative flex items-start gap-3 p-4 rounded-xl shadow-xl min-w-[280px] max-w-[360px] border ${
+              alert.type === "success"
+                ? "bg-green-50 border-green-200 text-green-900"
+                : "bg-red-50 border-red-200 text-red-900"
+            }`}
+          >
+            <div className="flex-1">
+              <p className="font-semibold mb-1">
+                {alert.type === "success" ? "Success" : "Error"}
+              </p>
+              <p className="text-sm leading-relaxed">{alert.message}</p>
+            </div>
+            <button
+              type="button"
+              onClick={closeAlert}
+              className="text-sm underline whitespace-nowrap"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
       <div className="w-full max-w-[1400px] grid grid-cols-1 lg:grid-cols-[1fr_520px] gap-y-[40px] lg:gap-y-[50px] lg:gap-x-[80px] items-start">
         {/* Left side */}
         <div className="pt-[10px] lg:pr-[10px] text-center lg:text-left">
@@ -78,17 +199,25 @@ const ContactUs = () => {
               You can reach us at anytime
             </p>
 
-            <form className="flex flex-col gap-[18px]">
+            <form className="flex flex-col gap-[18px]" onSubmit={handleSubmit}>
               <input
+                name="fullName"
                 type="text"
                 placeholder="Your Full Name"
+                required
+                pattern="[A-Za-z ]+"
+                title="Letters and spaces only"
+                onInput={onNameInput}
                 className="w-full px-[20px] py-[12px] border-[1px] rounded-full focus:outline-none focus:border-[#007DFE] transition-all placeholder:text-[#969696]"
                 style={{ borderColor: "#C7C7C7", color: "#2F2F2F" }}
               />
 
               <input
+                name="email"
                 type="email"
                 placeholder="Your Email"
+                required
+                inputMode="email"
                 className="w-full px-[20px] py-[12px] border-[1px] rounded-full focus:outline-none focus:border-[#007DFE] transition-all placeholder:text-[#969696]"
                 style={{ borderColor: "#C7C7C7", color: "#2F2F2F" }}
               />
@@ -107,54 +236,56 @@ const ContactUs = () => {
                 </div>
                 <div className="w-[1px] h-[24px] bg-[#C7C7C7]" />
                 <input
+                  name="phone"
                   type="tel"
                   placeholder="Phone Number"
+                  inputMode="numeric"
+                  onInput={onPhoneInput}
+                  minLength={9}
+                  maxLength={15}
                   className="flex-1 focus:outline-none bg-transparent placeholder:text-[#969696]"
                   style={{ color: "#2F2F2F", fontSize: "1rem" }}
                 />
               </div>
 
               <input
+                name="company"
                 type="text"
-                placeholder="Your Address (Optional)"
+                placeholder="Company / Address (Optional)"
                 className="w-full px-[20px] py-[12px] border-[1px] rounded-full focus:outline-none focus:border-[#007DFE] transition-all placeholder:text-[#969696]"
                 style={{ borderColor: "#C7C7C7", color: "#2F2F2F" }}
               />
 
               <div className="relative">
                 <textarea
+                  name="message"
                   placeholder="How can we help?"
                   rows={6}
-                  maxLength={100}
+                  required
+                  maxLength={1000}
                   className="w-full px-[20px] py-[14px] border-[1px] rounded-[20px] focus:outline-none focus:border-[#007DFE] transition-all resize-none placeholder:text-[#969696]"
                   style={{ borderColor: "#C7C7C7", color: "#2F2F2F" }}
                 />
-                <span className="absolute bottom-[20px] right-[20px] text-[#969696] text-[0.9rem]">
-                  0/100
-                </span>
               </div>
 
               <button
                 type="submit"
-                className="w-full py-[12px] rounded-full text-white font-inter font-[500] text-[1.1rem] transition-all hover:opacity-90"
+                disabled={isSubmitting}
+                className={`w-full py-[12px] rounded-full text-white font-inter font-[500] text-[1.1rem] transition-all hover:opacity-90 ${
+                  isSubmitting ? "opacity-60 cursor-not-allowed" : ""
+                }`}
                 style={{ backgroundColor: "#2F2F2F" }}
               >
-                Submit
+                {isSubmitting ? "Sending..." : "Submit"}
               </button>
 
               <p className="text-center font-regular text-[0.85rem] text-[#7B7B7B] mt-[6px]">
                 By contacting us, you agree to our{" "}
-                <a
-                  href="/terms"
-                  className="font-semibold text-[#3B3B3B] hover:underline"
-                >
+                <a href="/terms" className="font-semibold text-[#3B3B3B] hover:underline">
                   Terms of Services
                 </a>{" "}
                 and{" "}
-                <a
-                  href="/privacy"
-                  className="font-semibold text-[#3B3B3B] hover:underline"
-                >
+                <a href="/privacy" className="font-semibold text-[#3B3B3B] hover:underline">
                   Privacy Policy
                 </a>
               </p>
