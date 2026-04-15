@@ -7,7 +7,6 @@ import About from "../images/About Glob.png";
 import Solution from "../images/Solution Components.png";
 import Cards from "./Cards";
 import Center from "../images/Center.png";
-import Oppo from "../images/Oppo Back.png";
 import Opportunities from "./Opportunities";
 import paddy from "../images/paddy.png";
 import Footer from "./Footer";
