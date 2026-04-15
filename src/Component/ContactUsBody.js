@@ -17,6 +17,7 @@ const ContactUs = () => {
 
   const namePattern = /^[A-Za-z ]+$/;
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  const phoneLocalPattern = /^\d{9}$/;
   const normalizePhone = (value) => (value || "").replace(/\D/g, "");
 
   const onNameInput = (e) => {
@@ -52,8 +53,8 @@ const ContactUs = () => {
     }
 
     const phoneDigits = normalizePhone(phone);
-    if (phoneDigits && (phoneDigits.length < 9 || phoneDigits.length > 15)) {
-      showAlert("error", "Please enter a valid phone number.");
+    if (!phoneLocalPattern.test(phoneDigits)) {
+      showAlert("error", "Please enter a valid phone number (9 digits after +94). Example: 777777777");
       return;
     }
 
@@ -67,6 +68,8 @@ const ContactUs = () => {
     const [firstName, ...rest] = fullName.split(/\s+/).filter(Boolean);
     const lastName = rest.join(" ") || "-";
 
+    const fullPhone = `+94${phoneDigits}`;
+
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -75,7 +78,7 @@ const ContactUs = () => {
           firstName,
           lastName,
           email,
-          phone: phoneDigits,
+          phone: fullPhone,
           company,
           message,
         }),
@@ -238,11 +241,11 @@ const ContactUs = () => {
                 <input
                   name="phone"
                   type="tel"
-                  placeholder="Phone Number"
+                  placeholder="Phone Number (9 digits)"
                   inputMode="numeric"
                   onInput={onPhoneInput}
                   minLength={9}
-                  maxLength={15}
+                  maxLength={9}
                   className="flex-1 focus:outline-none bg-transparent placeholder:text-[#969696]"
                   style={{ color: "#2F2F2F", fontSize: "1rem" }}
                 />

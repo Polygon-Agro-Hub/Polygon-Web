@@ -25,6 +25,7 @@ const InvestFarmBody = () => {
 
   const namePattern = /^[A-Za-z ]+$/;
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  const phoneLocalPattern = /^\d{9}$/;
   const normalizePhone = (value) => (value || "").replace(/\D/g, "");
 
   const onNameInput = (e) => {
@@ -59,8 +60,8 @@ const InvestFarmBody = () => {
     }
 
     const phoneDigits = normalizePhone(phone);
-    if (phoneDigits && (phoneDigits.length < 9 || phoneDigits.length > 15)) {
-      showAlert("error", "Please enter a valid phone number.");
+    if (!phoneLocalPattern.test(phoneDigits)) {
+      showAlert("error", "Please enter a valid phone number (9 digits after +94). Example: 777777777");
       return;
     }
 
@@ -75,6 +76,7 @@ const InvestFarmBody = () => {
     const lastName = rest.join(" ") || "-";
 
     const mergedMessage = address ? `${message}\n\nAddress: ${address}` : message;
+    const fullPhone = `+94${phoneDigits}`;
 
     try {
       const res = await fetch("/api/contact", {
@@ -84,7 +86,7 @@ const InvestFarmBody = () => {
           firstName,
           lastName,
           email,
-          phone: phoneDigits,
+          phone: fullPhone,
           company,
           message: mergedMessage,
         }),
@@ -345,11 +347,11 @@ const InvestFarmBody = () => {
                 <input
                   name="phone"
                   type="tel"
-                  placeholder="Phone Number"
+                  placeholder="Phone Number (9 digits)"
                   inputMode="numeric"
                   onInput={onPhoneInput}
                   minLength={9}
-                  maxLength={15}
+                  maxLength={9}
                   className="flex-1 focus:outline-none bg-transparent"
                   style={{
                     color: "#2F2F2F",
